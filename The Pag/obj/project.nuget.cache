@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "uiFnMZsZpgdQhjVMsLdZ7dUHoeZNNrXAAuMrZmSP368PKEa4MFQ3CBiI3lgzkoPmeBBvO9w5qQe6gsEmC3dcMw==",
   "success": true,
   "projectFilePath": "d:\\Users\\UDI\\Documents\\GitHub\\INFT3050\\The Pag\\The Pag.csproj",
@@ -77,5 +78,11 @@
     "C:\\Users\\UDI\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.21\\microsoft.aspnetcore.app.ref.6.0.21.nupkg.sha512",
     "C:\\Users\\UDI\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.21\\microsoft.netcore.app.host.win-x64.6.0.21.nupkg.sha512"
   ],
+=======
+  "dgSpecHash": "nGUnhCqDNoGDDnXDyAnMqXo6H7Eec01DrJ/3AOPGS3iwn3nay4FdKok3qmBeKd5Nx0vKycclm0NRQ8frEFF79w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Jordan\\Desktop\\Y4 UNI\\INFT3050\\Assign1\\INFT3050\\The Pag\\The Pag.csproj",
+  "expectedPackageFiles": [],
+>>>>>>> 7c68f5257f5a1a0f8145006b9307b181e649e08a
   "logs": []
 }
