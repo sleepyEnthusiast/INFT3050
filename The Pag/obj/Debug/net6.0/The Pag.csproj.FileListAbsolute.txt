@@ -1,0 +1,32 @@
+C:\Users\asus\source\repos\The Pag\The Pag\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\asus\source\repos\The Pag\The Pag\bin\Debug\net6.0\appsettings.json
+C:\Users\asus\source\repos\The Pag\The Pag\bin\Debug\net6.0\libman.json
+C:\Users\asus\source\repos\The Pag\The Pag\bin\Debug\net6.0\The Pag.staticwebassets.runtime.json
+C:\Users\asus\source\repos\The Pag\The Pag\bin\Debug\net6.0\The Pag.exe
+C:\Users\asus\source\repos\The Pag\The Pag\bin\Debug\net6.0\The Pag.deps.json
+C:\Users\asus\source\repos\The Pag\The Pag\bin\Debug\net6.0\The Pag.runtimeconfig.json
+C:\Users\asus\source\repos\The Pag\The Pag\bin\Debug\net6.0\The Pag.dll
+C:\Users\asus\source\repos\The Pag\The Pag\bin\Debug\net6.0\The Pag.pdb
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\The Pag.csproj.AssemblyReference.cache
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\The Pag.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\The Pag.AssemblyInfoInputs.cache
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\The Pag.AssemblyInfo.cs
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\The Pag.csproj.CoreCompileInputs.cache
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\The Pag.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\The Pag.RazorAssemblyInfo.cache
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\The Pag.RazorAssemblyInfo.cs
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\staticwebassets\msbuild.The Pag.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\staticwebassets\msbuild.build.The Pag.props
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.The Pag.props
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.The Pag.props
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\scopedcss\bundle\The Pag.styles.css
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\scopedcss\projectbundle\The Pag.bundle.scp.css
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\The Pag.dll
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\refint\The Pag.dll
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\The Pag.pdb
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\The Pag.genruntimeconfig.cache
+C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\ref\The Pag.dll
