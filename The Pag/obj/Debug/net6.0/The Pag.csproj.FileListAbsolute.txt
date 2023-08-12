@@ -30,3 +30,35 @@ C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\refint\The Pag.dll
 C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\The Pag.pdb
 C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\The Pag.genruntimeconfig.cache
 C:\Users\asus\source\repos\The Pag\The Pag\obj\Debug\net6.0\ref\The Pag.dll
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\bin\Debug\net6.0\appsettings.json
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\bin\Debug\net6.0\libman.json
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\bin\Debug\net6.0\The Pag.staticwebassets.runtime.json
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\bin\Debug\net6.0\The Pag.exe
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\bin\Debug\net6.0\The Pag.deps.json
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\bin\Debug\net6.0\The Pag.runtimeconfig.json
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\bin\Debug\net6.0\The Pag.dll
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\bin\Debug\net6.0\The Pag.pdb
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\The Pag.csproj.AssemblyReference.cache
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\The Pag.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\The Pag.AssemblyInfoInputs.cache
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\The Pag.AssemblyInfo.cs
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\The Pag.csproj.CoreCompileInputs.cache
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\The Pag.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\The Pag.RazorAssemblyInfo.cache
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\The Pag.RazorAssemblyInfo.cs
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\staticwebassets\msbuild.The Pag.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\staticwebassets\msbuild.build.The Pag.props
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.The Pag.props
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.The Pag.props
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\scopedcss\bundle\The Pag.styles.css
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\scopedcss\projectbundle\The Pag.bundle.scp.css
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\The Pag.dll
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\refint\The Pag.dll
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\The Pag.pdb
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\The Pag.genruntimeconfig.cache
+C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\obj\Debug\net6.0\ref\The Pag.dll
