@@ -9,8 +9,8 @@ namespace The_Pag.Models
         public DbSet<Product> Products { get; set; } = null!;
         public DbSet<Genre> Genres { get; set; } = null!;
         public DbSet<Book_genre> BookSubgenre { get; set; } = null!;
-        public DbSet<Movie_genre> Products { get; set; } = null!;
-        public DbSet<Game_genre> Products { get; set; } = null!;
+        public DbSet<Movie_genre> MovieSubgenre { get; set; } = null!;
+        public DbSet<Game_genre> GameSubgenre { get; set; } = null!;
         //Book_genre NEW as well?
         public DbSet<Orders> Orders { get; set; } = null!;
         public DbSet<ProductsInOrders> ProductsInOrders { get; set; } = null!;

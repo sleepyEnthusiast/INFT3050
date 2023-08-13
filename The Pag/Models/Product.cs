@@ -5,20 +5,20 @@ namespace The_Pag.Models
     public class Product
     {
         [Required]
-        public int ID { get; set; }
+        public int? ID { get; set; }
         [Required]
-        public string Author { get; set; }
+        public string? Name { get; set; }
         [Required]
-        public string Description { get; set; }
+        public string? Author { get; set; }
         [Required]
-        public int Genre { get; set; }
+        public string? Description { get; set; }
+        [Required, NotNull]
+        public int? Genre { get; set; }
         [Required]
-        public int Subgenre { get; set; }
+        public int? Subgenre { get; set; }
         [Required]
-        public DateTime Published { get; set; }
-        [Required]
+        public DateTime? Published { get; set; }
         public string LastUpdatedBy { get; set; }
-        [Required]
         public DateTime LastUpdated { get; set; }
     }
 }
