@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - The_Pag</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/twitter-bootstrap/css/bootstrap.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/The_Pag.styles.css" asp-append-version="true" />
+
 </head>
 <body>
     <header>
@@ -21,6 +21,16 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Catalogue">Catalogue</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Cart">Cart</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Account">Account</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Account_Create">Account Creation</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Item">Item</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Order_History">Order History</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Order_Details">Order Details</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Update_Order_Details">Update Order</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="User_Management">User Management</a>
                         </li>
                     </ul>
                 </div>

@@ -1,6 +1,27 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "d:\\Users\\UDI\\Documents\\GitHub\\INFT3050\\The Pag\\The Pag.csproj": {}
+  },
+  "projects": {
+    "d:\\Users\\UDI\\Documents\\GitHub\\INFT3050\\The Pag\\The Pag.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "d:\\Users\\UDI\\Documents\\GitHub\\INFT3050\\The Pag\\The Pag.csproj",
+        "projectName": "The Pag",
+        "projectPath": "d:\\Users\\UDI\\Documents\\GitHub\\INFT3050\\The Pag\\The Pag.csproj",
+        "packagesPath": "C:\\Users\\UDI\\.nuget\\packages\\",
+        "outputPath": "d:\\Users\\UDI\\Documents\\GitHub\\INFT3050\\The Pag\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Users\\UDI\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\UDI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\UDI\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
     "C:\\Users\\Jordan\\Desktop\\Y4 UNI\\INFT3050\\Assign1\\INFT3050\\The Pag\\The Pag.csproj": {}
   },
   "projects": {
@@ -22,13 +43,21 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+>>>>>>> 7c68f5257f5a1a0f8145006b9307b181e649e08a
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+          "C:\\Program Files\\dotnet\\sdk\\7.0.307\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+=======
           "c:\\program files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+>>>>>>> 7c68f5257f5a1a0f8145006b9307b181e649e08a
+>>>>>>> afe349de5baa3813e7dd292f1205ab1eb992e869
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,17 +75,49 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.10, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+=======
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.21, 6.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.21, 6.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.21, 6.0.21]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.21, 6.0.21]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -65,7 +126,12 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.307\\RuntimeIdentifierGraph.json"
+=======
           "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+>>>>>>> 7c68f5257f5a1a0f8145006b9307b181e649e08a
+>>>>>>> afe349de5baa3813e7dd292f1205ab1eb992e869
         }
       }
     }
