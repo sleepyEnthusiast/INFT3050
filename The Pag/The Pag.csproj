@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>The_Pag</RootNamespace>
+    <UserSecretsId>af174bbb-2581-4887-903e-3b5d967349da</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
