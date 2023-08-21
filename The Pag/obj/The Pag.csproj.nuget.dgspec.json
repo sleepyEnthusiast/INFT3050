@@ -1,63 +1,33 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "d:\\Users\\UDI\\Documents\\GitHub\\INFT3050\\The Pag\\The Pag.csproj": {}
+    "C:\\Users\\asus\\source\\repos\\INFT3050\\The Pag\\The Pag.csproj": {}
   },
   "projects": {
-    "d:\\Users\\UDI\\Documents\\GitHub\\INFT3050\\The Pag\\The Pag.csproj": {
+    "C:\\Users\\asus\\source\\repos\\INFT3050\\The Pag\\The Pag.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Users\\UDI\\Documents\\GitHub\\INFT3050\\The Pag\\The Pag.csproj",
+        "projectUniqueName": "C:\\Users\\asus\\source\\repos\\INFT3050\\The Pag\\The Pag.csproj",
         "projectName": "The Pag",
-        "projectPath": "d:\\Users\\UDI\\Documents\\GitHub\\INFT3050\\The Pag\\The Pag.csproj",
-        "packagesPath": "C:\\Users\\UDI\\.nuget\\packages\\",
-        "outputPath": "d:\\Users\\UDI\\Documents\\GitHub\\INFT3050\\The Pag\\obj\\",
+        "projectPath": "C:\\Users\\asus\\source\\repos\\INFT3050\\The Pag\\The Pag.csproj",
+        "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\asus\\source\\repos\\INFT3050\\The Pag\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Users\\UDI\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\UDI\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Users\\UDI\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-=======
-    "C:\\Users\\Jordan\\Desktop\\Y4 UNI\\INFT3050\\Assign1\\INFT3050\\The Pag\\The Pag.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\Jordan\\Desktop\\Y4 UNI\\INFT3050\\Assign1\\INFT3050\\The Pag\\The Pag.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Jordan\\Desktop\\Y4 UNI\\INFT3050\\Assign1\\INFT3050\\The Pag\\The Pag.csproj",
-        "projectName": "The Pag",
-        "projectPath": "C:\\Users\\Jordan\\Desktop\\Y4 UNI\\INFT3050\\Assign1\\INFT3050\\The Pag\\The Pag.csproj",
-        "packagesPath": "C:\\Users\\Jordan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jordan\\Desktop\\Y4 UNI\\INFT3050\\Assign1\\INFT3050\\The Pag\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\Jordan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
->>>>>>> 7c68f5257f5a1a0f8145006b9307b181e649e08a
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-          "C:\\Program Files\\dotnet\\sdk\\7.0.307\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
-=======
-          "c:\\program files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
->>>>>>> 7c68f5257f5a1a0f8145006b9307b181e649e08a
->>>>>>> afe349de5baa3813e7dd292f1205ab1eb992e869
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -93,31 +63,11 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
-=======
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.21, 6.0.21]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.21, 6.0.21]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.21, 6.0.21]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.21, 6.0.21]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -126,12 +76,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.307\\RuntimeIdentifierGraph.json"
-=======
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
->>>>>>> 7c68f5257f5a1a0f8145006b9307b181e649e08a
->>>>>>> afe349de5baa3813e7dd292f1205ab1eb992e869
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }

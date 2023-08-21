@@ -1,17 +1,30 @@
-﻿using System.ComponentModel.DataAnnotations;
-namespace The_Pag.Models
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+
+namespace The_Pag.Models;
+
+[Table("Stocktake")]
+public partial class Stocktake
 {
-    public class Stocktake
-    {
-        [Required]
-        public int? ItemId { get; set; }
-        [Required]
-        public int? SourceId { get; set;}
-        [Required]
-        public int? ProductId { get; set;}
-        [Required]
-        public int? Quantity { get; set;}
-        [Required]
-        public float? Price { get; set;}
-    }
+    [Key]
+    public int ItemId { get; set; }
+
+    public int? SourceId { get; set; }
+
+    public int? ProductId { get; set; }
+
+    public int? Quantity { get; set; }
+
+    public double? Price { get; set; }
+
+    [ForeignKey("ProductId")]
+    [InverseProperty("Stocktakes")]
+    public virtual Product? Product { get; set; }
+
+    [ForeignKey("SourceId")]
+    [InverseProperty("Stocktakes")]
+    public virtual Source? Source { get; set; }
 }

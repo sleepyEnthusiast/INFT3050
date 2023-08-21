@@ -1,24 +1,48 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
-namespace The_Pag.Models
+namespace The_Pag.Models;
+
+[Table("Product")]
+public partial class Product
 {
-    public class Product
-    {
-        [Required]
-        public int? ID { get; set; }
-        [Required]
-        public string? Name { get; set; }
-        [Required]
-        public string? Author { get; set; }
-        [Required]
-        public string? Description { get; set; }
-        [Required, NotNull]
-        public int? Genre { get; set; }
-        [Required]
-        public int? Subgenre { get; set; }
-        [Required]
-        public DateTime? Published { get; set; }
-        public string LastUpdatedBy { get; set; }
-        public DateTime LastUpdated { get; set; }
-    }
+    [Key]
+    [Column("ID")]
+    public int Id { get; set; }
+
+    [StringLength(255)]
+    public string? Name { get; set; }
+
+    [StringLength(255)]
+    public string? Author { get; set; }
+
+    public string? Description { get; set; }
+
+    public int? Genre { get; set; }
+
+    [Column("subGenre")]
+    public int? SubGenre { get; set; }
+
+    [Column(TypeName = "date")]
+    public DateTime? Published { get; set; }
+
+    [StringLength(50)]
+    public string? LastUpdatedBy { get; set; }
+
+    [Column(TypeName = "datetime")]
+    public DateTime? LastUpdated { get; set; }
+
+    [ForeignKey("Genre")]
+    [InverseProperty("Products")]
+    public virtual Genre? GenreNavigation { get; set; }
+
+    [ForeignKey("LastUpdatedBy")]
+    [InverseProperty("Products")]
+    public virtual User? LastUpdatedByNavigation { get; set; }
+
+    [InverseProperty("Product")]
+    public virtual ICollection<Stocktake> Stocktakes { get; set; } = new List<Stocktake>();
 }
