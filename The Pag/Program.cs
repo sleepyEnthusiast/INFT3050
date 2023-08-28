@@ -29,6 +29,25 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapControllerRoute(
+    name: "admin",
+    pattern: "{controller=Admin}/{action=Edit_Item}/{id?}",
+    constraints: new {action="Edit_Item|Edit_User|Item_Management|User_Management" }
+);
+
+app.MapControllerRoute(
+    name: "catalogue",
+    pattern: "{controller=Catalogue}/{action=Cart}/{id?}/{id2?}/{id3?}/{id4?}",
+    constraints: new {action="Cart|Catalogue|Item"}
+);
+
+app.MapControllerRoute(
+    name: "user",
+    pattern: "{controller=User}/{action=Login}/{id?}",
+    constraints: new {action="Account|Account_Create|Login|Order_Details|Order_History|Update_Order_Details" }
+);
+
+
 app.MapRazorPages();
 
 app.Run();
