@@ -12,45 +12,16 @@ namespace The_Pag.Controllers
         {
             _logger = logger;
         }
+        
 
-        public IActionResult Account()
-        {
-            return View();
-        }
-        public IActionResult Account_Create()
-        {
-            return View();
-        }
-
-        public IActionResult Cart()
-        {
-            return View();
-        }
-
-        public IActionResult Catalogue()
-        {
-            return View();
-        }
-
-        public IActionResult Edit_Item()
-        {
-            return View();
-        }
-
-        public IActionResult Edit_User()
-        {
-            return View();
-        }
+        
 
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Item()
-        {
-            return View();
-        }
+        
 
         public IActionResult Item_Management()
         {
