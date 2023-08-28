@@ -30,11 +30,5 @@ namespace The_Pag.Controllers
         {
             return View();
         }
-
-        public IActionResult User_Management()
-        {
-            return View();
-        }
-
     }
 }

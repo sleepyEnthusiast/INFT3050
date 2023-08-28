@@ -148,6 +148,7 @@ sub {
   bottom: -.25em;
 }
 
+
 sup {
   top: -.5em;
 }
@@ -4061,7 +4062,7 @@ input[type="button"].btn-block {
 }
 
 .nav-link {
-  display: block;
+  display: inline;
   padding: 0.5rem 1rem;
 }
 
