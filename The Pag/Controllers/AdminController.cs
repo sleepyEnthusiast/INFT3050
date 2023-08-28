@@ -14,6 +14,13 @@ namespace The_Pag.Controllers
             return View();
         }
 
+        public IActionResult Item_Management()
+        {
+            return View();
+        }
+
+
+
 
     }
 }

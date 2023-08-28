@@ -12,5 +12,29 @@ namespace The_Pag.Controllers
         {
             return View();
         }
+        public IActionResult Login()
+        {
+            return View();
+        }
+        public IActionResult Order_Details()
+        {
+            return View();
+        }
+
+        public IActionResult Order_History()
+        {
+            return View();
+        }
+
+        public IActionResult Update_Order_Details()
+        {
+            return View();
+        }
+
+        public IActionResult User_Management()
+        {
+            return View();
+        }
+
     }
 }
