@@ -1,9 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Catalogue";
-}
 
     <div>
         <h1>Header</h1>
         <p>Catalogue Page</p>
+        @foreach(Product item in ViewBag.Test)  // Cycles through each model in the bag
+        {
+            <p>@item.Name</p>   // Prints whatever shit you want from each model
+            <p>@item.Author</p>
+        }
     </div>
-
+}
