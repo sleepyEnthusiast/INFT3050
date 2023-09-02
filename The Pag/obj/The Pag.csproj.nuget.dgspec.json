@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ethan\\source\\repos\\sleepyEnthusiast\\INFT3050\\The Pag\\The Pag.csproj": {}
+    "C:\\Users\\Ethan\\Source\\Repos\\sleepyEnthusiast\\INFT3050\\The Pag\\The Pag.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ethan\\source\\repos\\sleepyEnthusiast\\INFT3050\\The Pag\\The Pag.csproj": {
+    "C:\\Users\\Ethan\\Source\\Repos\\sleepyEnthusiast\\INFT3050\\The Pag\\The Pag.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ethan\\source\\repos\\sleepyEnthusiast\\INFT3050\\The Pag\\The Pag.csproj",
+        "projectUniqueName": "C:\\Users\\Ethan\\Source\\Repos\\sleepyEnthusiast\\INFT3050\\The Pag\\The Pag.csproj",
         "projectName": "The Pag",
-        "projectPath": "C:\\Users\\Ethan\\source\\repos\\sleepyEnthusiast\\INFT3050\\The Pag\\The Pag.csproj",
+        "projectPath": "C:\\Users\\Ethan\\Source\\Repos\\sleepyEnthusiast\\INFT3050\\The Pag\\The Pag.csproj",
         "packagesPath": "C:\\Users\\Ethan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ethan\\source\\repos\\sleepyEnthusiast\\INFT3050\\The Pag\\obj\\",
+        "outputPath": "C:\\Users\\Ethan\\Source\\Repos\\sleepyEnthusiast\\INFT3050\\The Pag\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ethan\\AppData\\Roaming\\NuGet\\NuGet.Config",

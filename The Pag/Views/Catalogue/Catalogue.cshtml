@@ -2,12 +2,43 @@
     ViewData["Title"] = "Catalogue";
 
     <div>
-        <h1>Header</h1>
-        <p>Catalogue Page</p>
-        @foreach(Product item in ViewBag.Test)  // Cycles through each model in the bag
-        {
-            <p>@item.Name</p>   // Prints whatever shit you want from each model
-            <p>@item.Author</p>
-        }
+        <h1>Catalogue</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <!-- Table headers -->
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Published</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Product item in ViewBag.prodlist)  // Builds table from database, checks for nulls/empty data
+                {
+                    <tr>
+                        <td>@(item.Name ?? "Unknown")</td>
+                        <td>@(item.Author ?? "Unknown")</td>
+                        @if (item.Genre == 1) // Converts genre data into readable text
+                        {
+                            <td>Book</td>
+                        }
+                        else if (item.Genre == 2)
+                        {
+                            <td>Movie</td>
+                        }
+                        else if (item.Genre == 3)
+                        {
+                            <td>Game</td>
+                        }
+                        else
+                        {
+                            <td>Unknown</td>
+                        }
+                        <td>@(item.Published.HasValue ? item.Published.Value.ToString("yyyy") : "Unknown")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 }

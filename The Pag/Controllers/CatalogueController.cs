@@ -19,9 +19,10 @@ namespace The_Pag.Controllers
 
         public IActionResult Catalogue()
         {
-            IQueryable<Product> aquery = context.Products; // Query initiation
-            var display = aquery.ToList();  // Query execution, creates list of models
-            ViewBag.Test = display; // Puts results into the BAG
+            IQueryable<Product> prodlist = context.Products; // Query initiation
+            var display = prodlist.ToList();  // Query execution, creates list of models
+            ViewBag.prodlist = display; // Puts results into the BAG
+
             return View();
         }
 
