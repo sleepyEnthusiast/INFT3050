@@ -3509,19 +3509,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ethan\\.nuget\\packages\\": {}
+    "C:\\Users\\UDI\\.nuget\\packages\\": {},
+    "C:\\Users\\UDI\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ethan\\source\\repos\\sleepyEnthusiast\\INFT3050\\The Pag\\The Pag.csproj",
+      "projectUniqueName": "C:\\Users\\UDI\\source\\repos\\sleepyEnthusiast\\INFT3050\\The Pag\\The Pag.csproj",
       "projectName": "The Pag",
-      "projectPath": "C:\\Users\\Ethan\\source\\repos\\sleepyEnthusiast\\INFT3050\\The Pag\\The Pag.csproj",
-      "packagesPath": "C:\\Users\\Ethan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ethan\\source\\repos\\sleepyEnthusiast\\INFT3050\\The Pag\\obj\\",
+      "projectPath": "C:\\Users\\UDI\\source\\repos\\sleepyEnthusiast\\INFT3050\\The Pag\\The Pag.csproj",
+      "packagesPath": "C:\\Users\\UDI\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\UDI\\source\\repos\\sleepyEnthusiast\\INFT3050\\The Pag\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Users\\UDI\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Ethan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\UDI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\UDI\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3577,7 +3582,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
