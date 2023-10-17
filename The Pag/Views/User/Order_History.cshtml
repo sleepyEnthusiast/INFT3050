@@ -1,8 +1,25 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Order History";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<form class="accountform">
+    <div class="d-flex">
+        <button type="submit" class="btn btn-primary backbutton">Back</button>
+    </div>
+    <div class="orderhistory">
+        <h1>Order History</h1>
+        <table class="table orderstable">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Address</th>
+                    <th>Postcode</th>
+                    <th>Suburb</th>
+                    <th>State</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    
+</form>
