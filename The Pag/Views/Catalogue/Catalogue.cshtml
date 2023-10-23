@@ -14,29 +14,36 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (Product item in ViewBag.prodlist)  // Builds table from database, checks for nulls/empty data
+                @if (ViewBag.prodlist != null) // checks if prodlist is null
                 {
-                    <tr>
-                        <td>@(item.Name ?? "Unknown")</td>
-                        <td>@(item.Author ?? "Unknown")</td>
-                        @if (item.Genre == 1) // Converts genre data into readable text
-                        {
-                            <td>Book</td>
-                        }
-                        else if (item.Genre == 2)
-                        {
-                            <td>Movie</td>
-                        }
-                        else if (item.Genre == 3)
-                        {
-                            <td>Game</td>
-                        }
-                        else
-                        {
-                            <td>Unknown</td>
-                        }
-                        <td>@(item.Published.HasValue ? item.Published.Value.ToString("yyyy") : "Unknown")</td>
-                    </tr>
+                    @foreach (Product item in ViewBag.prodlist)  // Builds table from database, checks for nulls/empty data
+                    {
+                        <tr>
+                            <td>@(item.Name ?? "Unknown")</td>
+                            <td>@(item.Author ?? "Unknown")</td>
+                            @if (item.Genre == 1) // Converts genre data into readable text
+                            {
+                                <td>Book</td>
+                            }
+                            else if (item.Genre == 2)
+                            {
+                                <td>Movie</td>
+                            }
+                            else if (item.Genre == 3)
+                            {
+                                <td>Game</td>
+                            }
+                            else
+                            {
+                                <td>Unknown</td>
+                            }
+                            <td>@(item.Published.HasValue ? item.Published.Value.ToString("yyyy") : "Unknown")</td>
+                        </tr>
+                    }
+                } 
+                else
+                {
+                <h1>Catalogue Error</h1>    
                 }
             </tbody>
         </table>

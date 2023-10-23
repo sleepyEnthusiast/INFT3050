@@ -1,4 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ValueGeneration;
+using System.Data;
 using The_Pag.Models;
 
 namespace The_Pag.Controllers
@@ -17,14 +21,35 @@ namespace The_Pag.Controllers
             return View();
         }
 
-        public IActionResult Catalogue()
+        public IActionResult Catalogue(string productType, string genre, string sortOrder)
         {
-            IQueryable<Product> prodlist = context.Products; // Query initiation
-            var display = prodlist.ToList();  // Query execution, creates list of models
-            ViewBag.prodlist = display; // Puts results into the BAG
+            // Construct the SQL query with a parameterized query to prevent SQL injection
+            string query = "SELECT * FROM Product WHERE Genre = @Genre";
+            SqlParameter genreParam = new SqlParameter("@Genre", SqlDbType.Int);
+
+            switch (productType)
+            {
+                case "books":
+                    genreParam.Value = 1;
+                    break;
+                case "movies":
+                    genreParam.Value = 2;
+                    break;
+                case "games":
+                    genreParam.Value = 3;
+                    break;
+                default:
+                    // Handle the default case (error or redirection)
+                    return View();
+            }
+
+            var display = context.Products.FromSqlRaw(query, genreParam).ToList();
+            ViewBag.prodlist = display;
 
             return View();
-        }
+        }   // Test Url: https://localhost:7289/Catalogue/Catalogue/movies/1/sortOrderValue
+            // all the segments of the url must be filled for this method to activate. 
+
 
         public IActionResult Item()
         {
