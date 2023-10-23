@@ -1,8 +1,42 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "User Management";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>All current users:</h1>
+
+<table class="table-responsive usertable">
+    <thead>
+        <tr class="usertableheader">
+            <!-- Table headers -->
+            <th>User ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Admin Status</th>
+            <th>Salt</th>
+            <th>HashPW</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="table">
+        @foreach (User detail in ViewBag.userList)  // Builds table from database, checks for nulls/empty data
+        {
+            <tr>
+                <td>@(detail.UserId)</td>
+                <td>@(detail.UserName)</td>
+                <td>@(detail.Email ?? "NULL")</td>
+                <td>@(detail.Name)</td>
+                <td>@(detail.IsAdmin)</td>
+                <td>@(detail.Salt)</td>
+                <td>@(detail.HashPw)</td>
+                <td>
+                    <button class="deluserbtn btn" id="deleteuser">Delete</button>
+                </td>
+                <td>
+                    <button class="edituserbtn btn" id="edituser">Edit</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

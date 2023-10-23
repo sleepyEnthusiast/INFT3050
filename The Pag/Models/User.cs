@@ -9,7 +9,7 @@ namespace The_Pag.Models;
 [Table("User")]
 public partial class User
 {
-    [Column("UserID")]
+    [Column("UserId")]
     public int UserId { get; set; }
 
     [Key]
