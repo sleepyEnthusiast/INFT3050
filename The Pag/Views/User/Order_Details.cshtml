@@ -1,8 +1,34 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Order Details";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="accountheader">
+    <h1 class="title">Username</h1> <!--Needs session state current user-->
 </div>
+
+<div class="d-flex">
+    <button type="submit" class="btn btn-primary backbutton">Back</button>
+</div>
+
+<hr />
+
+<form class="accountform">
+    <div class="accountinfo">
+       <div class="row">
+        <div class="column ordercolumn">
+        <p>Item Ordered</p>
+        <p>Email</p>
+        <p>Address</p>
+        <p>Postcode</p>
+        </div>
+        <div class="column ordercolumn">
+        <p>Suburb</p>
+        <p>State</p>
+        <p>Phone Number</p>
+        </div>
+       </div>
+    </div>
+    <div class="d-flex flex-md-row-reverse">
+        <button type="submit" class="btn btn-primary editbutton">Edit</button>
+    </div>
+</form>

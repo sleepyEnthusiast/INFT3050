@@ -223,6 +223,16 @@ body {
     margin-top: 15px;
 }
 
-.usertableheader {
+.tableheader {
     background-color: grey;
 }
+
+.cataloguenav {
+    display: inline;
+    padding: 15px;
+    text-align: center;
+}
+ .ordercolumn {
+     padding: 10px;
+     margin-left: 15px;
+ }

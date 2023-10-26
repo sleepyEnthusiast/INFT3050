@@ -6,7 +6,7 @@
 
 <table class="table-responsive usertable">
     <thead>
-        <tr class="usertableheader">
+        <tr class="tableheader">
             <!-- Table headers -->
             <th>User ID</th>
             <th>Username</th>
@@ -20,7 +20,7 @@
         </tr>
     </thead>
     <tbody class="table">
-        @foreach (User detail in ViewBag.userList)  // Builds table from database, checks for nulls/empty data
+        @foreach (User detail in ViewBag.userList)  // Builds table from database
         {
             <tr>
                 <td>@(detail.UserId)</td>

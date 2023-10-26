@@ -3,8 +3,21 @@
 
     <div>
         <h1>Catalogue</h1>
-        <table class="table cataloguetable">
-            <thead>
+
+        <div class="cataloguenav">
+            <a href = Catalogue/movies/1/sortOrderValue>Movies</a>
+            <a href = Catalogue/books/1/sortOrderValue>Books</a>
+            <a href = Catalogue/games/1/sortOrderValue>Games</a>
+        </div>
+
+
+        <div>
+        <form>
+        <!-- Render form dynamically containing genres specific to their product type -->
+        </form>
+        </div>
+        <table class = "table cataloguetable">
+            <thead class = "tableheader">
                 <tr>
                     <!-- Table headers -->
                     <th>Name</th>
@@ -43,7 +56,8 @@
                 } 
                 else
                 {
-                <h1>Catalogue Error</h1>    
+                <h1>Catalogue Error</h1>  
+                
                 }
             </tbody>
         </table>

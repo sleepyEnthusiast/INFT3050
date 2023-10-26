@@ -46,6 +46,8 @@ namespace The_Pag.Controllers
             var display = context.Products.FromSqlRaw(query, genreParam).ToList();
             ViewBag.prodlist = display;
 
+
+
             return View();
         }   // Test Url: https://localhost:7289/Catalogue/Catalogue/movies/1/sortOrderValue
             // all the segments of the url must be filled for this method to activate. 

@@ -1,9 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using The_Pag.Models;
 
 namespace The_Pag.Controllers
 {
     public class UserController : Controller
     {
+
+        private StoreDbContext context;
+
+        public UserController(StoreDbContext ctx)
+        {
+            context = ctx;
+        }
+
         public IActionResult Account()
         {
             return View();
@@ -18,6 +27,11 @@ namespace The_Pag.Controllers
         }
         public IActionResult Order_Details()
         {
+
+            IQueryable<User> userList = context.Users; // Query initiation
+            var listofusers = userList.ToList();  // Query execution, creates list of models
+            ViewBag.userList = listofusers; // Puts results into the BAG
+
             return View();
         }
 
