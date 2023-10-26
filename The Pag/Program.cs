@@ -37,8 +37,14 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "catalogue",
-    pattern: "{controller=Catalogue}/{action=Cart}/{productType?}/{genre?}/{sortOrder?}",
-    constraints: new {action="Cart|Catalogue|Item"}
+    pattern: "{controller=Catalogue}/{action=Cart}/{productType?}/{genre?}/{sortBy?}/{order?}",
+    constraints: new {action="Cart|Catalogue"}
+);
+
+app.MapControllerRoute(
+    name: "catalogue",
+    pattern: "{controller=Catalogue}/{action=Item}/{ID?}",
+    constraints: new { action = "Item" }
 );
 
 app.MapControllerRoute(

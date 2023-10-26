@@ -1,33 +1,24 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Item";
 }
 
 <div class="itemform">
-    <h1 class="itemtitle title">Item Name</h1>
-    <br />
-    <h2 class="itemprice">Item price</h2> <!-- Add $ sign to the price data? -->
-    <br />
-    <h1 class="title">Details and features:</h1>
-    <p class="itemdesc">Item description</p>
-    <div>
-        <table class="itemspecs">
+    @if (ViewBag.item != null && ViewBag.item.Count > 0)
+    {
+        var item = ViewBag.item[0];
+        <h1 class="itemtitle title">@item.Name</h1>
+        <br />
+        <h2 class="itemprice">where is the price?</h2>
+        <br />
+        <h1 class="title">Description:</h1>
+        <p class="itemdesc">@item.Description</p>
+        <p class="itempublished">Publish Date: @item.Published</p>
 
-        </table>
-    </div>
-    <button class="custombutton">ADD TO CART</button>
+
+        <button class="custombutton">ADD TO CART</button>
+    }
+    else
+    {
+        <p>Item not found</p>
+    }
 </div>
-
-
-
-
-<!--
-<div class="text-center">
-    <div class="card">
-        <img src="jeans3.jpg" alt="Denim Jeans" style="width:100%">
-        <h1>Tailored Jeans</h1>
-        <p class="price">$19.99</p>
-        <p>Some text about the jeans..</p>
-        <p><button>Add to Cart</button></p>
-    </div>
-</div>
--->
