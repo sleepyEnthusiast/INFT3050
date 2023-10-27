@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
-builder.Services.AddRazorPages();
+builder.Services.AddMemoryCache();  // Session state memory
+builder.Services.AddSession();      // Enable session state
+builder.Services.AddControllersWithViews(); // Add services to container
+builder.Services.AddRazorPages();   // Enables razer pages
 builder.Services.AddDbContext<StoreDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("StoreDbContext")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("StoreDbContext"))); // Database config
 
 var app = builder.Build();
 
@@ -20,9 +22,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
+app.UseSession();
 app.UseAuthorization();
 
 app.MapControllerRoute(

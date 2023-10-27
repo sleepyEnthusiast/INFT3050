@@ -24,6 +24,10 @@ namespace The_Pag.Controllers
 
         public IActionResult Item_Management()
         {
+            IQueryable<Product> prodlist = context.Products; // Query initiation
+            var list = prodlist.ToList();  // Query execution, creates list of models
+            ViewBag.prodlist = list; // Puts results into the BAG
+
             return View();
         }
 
