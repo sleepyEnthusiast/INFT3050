@@ -22,21 +22,31 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Catalogue" asp-action="Catalogue">Catalogue</a>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Catalogue" asp-action="Item">Item</a>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Account">Account</a>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Account_Create">Account Creation</a>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Order_Details">Order Details</a>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Order_History">Order History</a>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Update_Order_Details">Update Order</a>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Edit_Item">Edit Item</a>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Edit_User">Edit User</a>
+                            <!--All the links for pages if you need to use them for editing/etc-->
+                            <!--<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>-->
+                            <!--<a class="nav-link text-dark" asp-area="" asp-controller="Catalogue" asp-action="Catalogue">Catalogue</a>-->
+                            <!--<a class="nav-link text-dark" asp-area="" asp-controller="Catalogue" asp-action="Item">Item</a>-->
+                            <!--<a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Account_Create">Account Creation</a>-->
+                            <!--<a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Order_Details">Order Details</a>-->
+                            <!--<a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Order_History">Order History</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Update_Order_Details">Update Order</a>-->
+                            <!--<a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Edit_Item">Edit Item</a>-->
+                            <!--<a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Edit_User">Edit User</a>-->
+                            <a class="nav-link text-dark" href="~/Catalogue/Catalogue/movies/drama/name/desc">MOVIES</a>
+                            <a class="nav-link text-dark" href="~/Catalogue/Catalogue/books/fiction/name/desc">BOOKS</a>
+                            <a class="nav-link text-dark" href="~/Catalogue/Catalogue/games/rpg/name/desc">GAMES</a>
                             <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Item_Management">Item Management</a>
                             <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="User_Management">User Management</a>
-                            <input type="text" placeholder="Search.."> <!--Temporary search bar for presentation purposes-->
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Catalogue" asp-action="Cart">Cart</a>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">Login</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav flex-grow-1 ml-auto justify-content-end usergroup">
+                        <li class="nav-item">
+                            <div>
+                                <input type="text" placeholder="Search.." class="searchbar"> <!--Temporary search bar for presentation purposes-->
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Catalogue" asp-action="Cart">Cart</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">Login</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Account">MY ACCOUNT</a>
+                            </div>
                         </li>
                     </ul>
                 </div>

@@ -150,6 +150,18 @@ body {
     cursor: pointer;
 }
 
+.cancelbutton {
+    margin: 15px;
+    width: 15%;
+    height: 5%;
+    background-color: red;
+}
+
+.cancelbutton:hover {
+    background-color: lightcoral;
+    cursor: pointer;
+}
+
 .viewordersbutton {
     margin: 15px;
     width: 30%;
@@ -235,4 +247,12 @@ body {
  .ordercolumn {
      padding: 10px;
      margin-left: 15px;
+ }
+
+ .searchbar {
+     width: 700px;
+ }
+
+ .usergroup {
+
  }

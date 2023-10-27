@@ -8,7 +8,10 @@
         var item = ViewBag.item[0];
         <h1 class="itemtitle title">@item.Name</h1>
         <br />
-        <h2 class="itemprice">where is the price?</h2>
+        <br />
+        <!--<h2 class="itemprice">where is the price?</h2> -->
+        <h2 class="itemprice">Subgenre</h2>
+        <br />
         <br />
         <h1 class="title">Description:</h1>
         <p class="itemdesc">@item.Description</p>
@@ -21,4 +24,8 @@
     {
         <p>Item not found</p>
     }
+    <div class="d-flex flex-md-row-reverse" id="AdminOnly">
+        <!--Admin only Button for session state-->
+        <a href="~/Admin/Edit_Item" class="btn btn-primary editbutton">Edit Item Details</a>
+    </div>
 </div>

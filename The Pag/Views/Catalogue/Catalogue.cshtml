@@ -24,6 +24,7 @@
                     <th>Author</th>
                     <th>Genre</th>
                     <th>Published</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -51,6 +52,7 @@
                                 <td>Unknown</td>
                             }
                             <td>@(item.Published.HasValue ? item.Published.Value.ToString("yyyy") : "Unknown")</td>
+                            <td><a class="btn btn-primary" href="~Catalogue/Item/@(item.Id)">View Item</a></td>
                         </tr>
                     }
                 } 

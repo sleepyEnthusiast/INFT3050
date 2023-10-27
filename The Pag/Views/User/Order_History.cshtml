@@ -4,7 +4,7 @@
 
 <form class="accountform">
     <div class="d-flex">
-        <button type="submit" class="btn btn-primary backbutton">Back</button>
+        <a href="~/User/Account" class="btn btn-primary backbutton">Back</a>
     </div>
     <div class="orderhistory">
         <h1>Order History</h1>
@@ -17,9 +17,20 @@
                     <th>Postcode</th>
                     <th>Suburb</th>
                     <th>State</th>
+                    <th></th>
                 </tr>
             </thead>
+            <tbody>
+                <tr>
+                    <td>Item</td>
+                    <td>Quantity</td>
+                    <td>Address</td>
+                    <th>Postcode</th>
+                    <th>Suburb</th>
+                    <th>State</th>
+                    <th><a href="~/User/Order_Details" class="btn btn-primary">View Details</a></th>
+                </tr>
+            </tbody>
         </table>
     </div>
-    
 </form>
