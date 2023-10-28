@@ -80,7 +80,7 @@
                             <td>@(item.Author ?? "Unknown")</td>
                             <td>@ViewBag.selectedGenres[item.SubGenre.Value-1]</td>
                             <td>@(item.Published.HasValue ? item.Published.Value.ToString("yyyy") : "Unknown")</td>
-                            <td><a class="btn btn-primary" href="~Catalogue/Item/@(item.Id)">View Item</a></td>
+                            <td><a class="btn btn-primary" href="~/Catalogue/Item/@(item.Id)">View Item</a></td>
                         </tr>
                     }
                 } 

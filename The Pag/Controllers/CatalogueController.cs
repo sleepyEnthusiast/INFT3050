@@ -113,7 +113,10 @@ namespace The_Pag.Controllers
             string query = "SELECT * FROM Product WHERE ID = @ID";
             SqlParameter idParam = new SqlParameter("@ID", SqlDbType.Int);
             idParam.Value = int.Parse(ID);
-            ViewBag.name = query;
+
+            var stocktake = context.Stocktakes.FromSqlRaw("SELECT * FROM Stocktake WHERE ItemId = @ID", idParam).ToList();
+            ViewBag.stocktake = stocktake[0];
+
             var display = context.Products.FromSqlRaw(query, idParam).ToList();
             ViewBag.item = display;
 

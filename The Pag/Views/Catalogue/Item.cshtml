@@ -8,14 +8,13 @@
         var item = ViewBag.item[0];
         <h1 class="itemtitle title">@item.Name</h1>
         <br />
+        <h2 class="itemprice">$@ViewBag.stocktake.Price</h2>
         <br />
-        <!--<h2 class="itemprice">where is the price?</h2> -->
-        <h2 class="itemprice">Subgenre</h2>
-        <br />
+        <h3 class="itemqty">x @ViewBag.stocktake.Quantity</h3>
         <br />
         <h1 class="title">Description:</h1>
         <p class="itemdesc">@item.Description</p>
-        <p class="itempublished">Publish Date: @item.Published</p>
+        <p class="itempublished">Publish Date: @item.Published.ToString("dd-MM-yyyy")</p>
 
 
         <button class="custombutton">ADD TO CART</button>
