@@ -42,6 +42,7 @@ namespace The_Pag.Controllers
         
         public IActionResult Edit_Item(string ID)
         {
+            if (!CookieConfirm.IsValidCookie()) return RedirectToAction("AdminController");
             if (ID == null) return RedirectToAction("Item_Management");
             string query = "SELECT * FROM Product WHERE ID = @ID";
             SqlParameter idParam = new SqlParameter("@ID", SqlDbType.Int);
