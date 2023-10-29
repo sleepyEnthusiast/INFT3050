@@ -6,6 +6,7 @@ using System.Data;
 using System.Diagnostics;
 using System.IO.Pipelines;
 using System.Runtime.Intrinsics.X86;
+using The_Pag.Classes;
 using The_Pag.Models;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
@@ -34,6 +35,9 @@ namespace The_Pag.Controllers
         public AdminController(StoreDbContext ctx)
         {
             context = ctx;
+
+            CookieConfirm.SetHttpContext(this.HttpContext);
+            CookieConfirm.SetDbContext(ctx);
         }
         
         public IActionResult Edit_Item(string ID)
@@ -64,7 +68,7 @@ namespace The_Pag.Controllers
                     break;
             }
 
-            var stocktake = context.Stocktakes.FromSqlRaw("SELECT * FROM Stocktake WHERE ItemId = @ID", idParam).ToList();
+            var stocktake = context.Stocktakes.FromSqlRaw("SELECT * FROM Stocktake WHERE ProductId = @ID", idParam).ToList();
             ViewBag.stocktake = stocktake[0];
 
             ViewBag.genre = selectedGenre.ElementAt(genreID - 1);

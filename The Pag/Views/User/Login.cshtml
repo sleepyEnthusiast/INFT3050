@@ -4,16 +4,19 @@
 
 <div class="text-center">
     <h1 class="display-4">Login page</h1>
-    <form class="loginform accountform"> <!-- Bootstrap login form -->
+    @using (Html.BeginForm("Login_Action", "User", FormMethod.Post))
+    {
+        <!-- Bootstrap login form -->
         <div class="form loginform justify-content-center">
             <div class="form-group">
-                <input type="text" class="form-control userinput" placeholder="Username">
+                <input type="text" id="username" name="username" class="form-control userinput" placeholder="Username" value="jane.l.j.citizen@somemail.com" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control userinput" placeholder="Password">
+                <input type="password" id="password" name="password" class="form-control userinput" placeholder="Password">
             </div>
         </div>
-        <a id="" class="loginlink" href="#">Forgot Password?</a> <!-- Temporary -->
-        <a id="" class="loginlink" href="~/User/Account_Create">Sign Up</a>
-    </form>
+        <button type="submit" class="btn btn-primary">Login</button>
+    }
+    <a id="" class="loginlink" href="#">Forgot Password?</a> <!-- Temporary -->
+    <a id="" class="loginlink" href="~/User/Account_Create">Sign Up</a>
 </div>

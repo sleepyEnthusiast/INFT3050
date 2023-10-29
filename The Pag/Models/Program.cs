@@ -1,5 +1,7 @@
 using The_Pag.Models;
 using Microsoft.EntityFrameworkCore;
+using The_Pag;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,7 +11,6 @@ builder.Services.AddControllersWithViews(); // Add services to container
 builder.Services.AddRazorPages();   // Enables razer pages
 builder.Services.AddDbContext<StoreDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("StoreDbContext"))); // Database config
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -60,6 +61,11 @@ app.MapControllerRoute(
     constraints: new {action="Account|Account_Create|Login|Order_Details|Order_History|Update_Order_Details" }
 );
 
+app.MapControllerRoute(
+    name: "user",
+    pattern: "{controller=User}/{action=Login_Action}/{username}/{password}",
+    constraints: new { action = "Login_Action" }
+);
 
 app.MapRazorPages();
 
