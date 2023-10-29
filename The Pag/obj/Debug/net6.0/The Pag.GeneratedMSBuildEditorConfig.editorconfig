@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\UDI\source\repos\sleepyEnthusiast\INFT3050\The Pag
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/Admin/Add_Item.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkX0l0ZW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/Admin/Edit_Item.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdF9JdGVtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

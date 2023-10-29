@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
+using System.IO.Pipelines;
 using System.Runtime.Intrinsics.X86;
 using The_Pag.Models;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
@@ -35,7 +38,7 @@ namespace The_Pag.Controllers
         
         public IActionResult Edit_Item(string ID)
         {
-            if (ID == null) return View();
+            if (ID == null) return RedirectToAction("Item_Management");
             string query = "SELECT * FROM Product WHERE ID = @ID";
             SqlParameter idParam = new SqlParameter("@ID", SqlDbType.Int);
             idParam.Value = int.Parse(ID);
@@ -74,6 +77,32 @@ namespace The_Pag.Controllers
             return View();
         }
 
+        public IActionResult Add_Item(string ID)
+        {
+            if (ID == null) return RedirectToAction("Item_Management");
+
+            List<string> selectedGenre = new List<string>();
+            switch (Convert.ToInt32(ID))
+            {
+                case 1:
+                    selectedGenre = bookGenres;
+                    break;
+                case 2:
+                    selectedGenre = gameGenres;
+                    break;
+                case 3:
+                    selectedGenre = movieGenres;
+                    break;
+            }
+
+            var sources = context.Sources.FromSqlRaw("SELECT * FROM Source").ToList();
+            ViewBag.sources = sources;
+
+            ViewBag.genre = ID;
+            ViewBag.genreList = selectedGenre;
+
+            return View();
+        }
         public IActionResult Edit_Item_Action(IFormCollection input) // The actual item editing
         {
             string productquery =
@@ -132,7 +161,7 @@ namespace The_Pag.Controllers
                     "Price = @Price, " +
                     "Quantity = @Quantity " +
             "WHERE ProductId = @ID;";
-
+            
             SqlParameter priceParam = new SqlParameter("@Price", SqlDbType.Float);
             priceParam.Value = Convert.ToDecimal(input["Price"]);
 
@@ -146,6 +175,92 @@ namespace The_Pag.Controllers
             return RedirectToAction("Item_Management");
         }
         
+        public IActionResult Add_Item_Action(IFormCollection input)
+        {
+            string productquery = "INSERT INTO Product (Name, Author, Description, Genre, subGenre, Published, LastUpdatedBy, LastUpdated) " +
+                                  "OUTPUT Inserted.ID, Inserted.Name, Inserted.Author, Inserted.Description, Inserted.Genre, Inserted.subGenre, Inserted.Published, Inserted.LastUpdatedby,Inserted.LastUpdated " +
+                                  "VALUES (@Name, @Author, @Description, @Genre, @SubGenre, @Published, @User, GETDATE());";
+
+            SqlParameter nameParam = new SqlParameter("@Name", SqlDbType.VarChar);
+            nameParam.Value = Convert.ToString(input["Name"]);
+
+            SqlParameter authorParam = new SqlParameter("@Author", SqlDbType.VarChar);
+            authorParam.Value = Convert.ToString(input["Author"]);
+
+            SqlParameter descParam = new SqlParameter("@Description", SqlDbType.VarChar);
+            descParam.Value = Convert.ToString(input["Description"]);
+
+            SqlParameter genreParam = new SqlParameter("@Genre", SqlDbType.Int);
+            int productID = Convert.ToInt32(input["Genre"]);
+            genreParam.Value = productID;
+
+            SqlParameter subParam = new SqlParameter("@SubGenre", SqlDbType.Int);
+
+            switch (productID)
+            {
+                case 1:
+                    subParam.Value = Convert.ToInt32(bookGenres.IndexOf(input["subGenre"]) + 1);
+                    break;
+                case 2:
+                    subParam.Value = Convert.ToInt32(gameGenres.IndexOf(input["subGenre"]) + 1);
+                    break;
+                case 3:
+                    subParam.Value = Convert.ToInt32(movieGenres.IndexOf(input["subGenre"]) + 1);
+                    break;
+            }
+
+            SqlParameter publishParam = new SqlParameter("@Published", SqlDbType.Date);
+            if (DateTime.TryParse(input["publishedDate"], out DateTime publishDate))
+            {
+                publishParam.Value = publishDate;
+            }
+            else
+            {
+                publishParam.Value = DBNull.Value;
+            }
+
+            SqlParameter userParam = new SqlParameter("@User", SqlDbType.VarChar);
+            userParam.Value = "storeManager";
+
+            string stocktakequery = "INSERT INTO StockTake(SourceId, ProductId, Price, Quantity) " +
+                                    "VALUES(@Source, @ID, @Price, @Quantity);";
+
+            SqlParameter priceParam = new SqlParameter("@Price", SqlDbType.Float);
+            if (decimal.TryParse(input["Price"], out decimal priceValue))
+            {
+                priceParam.Value = priceValue;
+            }
+            else
+            {
+                priceParam.Value = DBNull.Value;
+            }
+
+            SqlParameter quantityParam = new SqlParameter("@Quantity", SqlDbType.Int);
+            if (int.TryParse(input["Quantity"], out int quantity))
+            {
+                quantityParam.Value = quantity;
+            }
+            else
+            {
+                quantityParam.Value = DBNull.Value;
+            }
+
+            SqlParameter sourcenameParam = new SqlParameter("@sourceName", SqlDbType.VarChar);
+            sourcenameParam.Value = Convert.ToString(input["source"]);
+
+            var source = context.Sources.FromSqlRaw("SELECT * FROM Source WHERE Source_name = @sourceName", sourcenameParam).ToList();
+
+            SqlParameter sourceParam = new SqlParameter("@Source", SqlDbType.Int);
+            sourceParam.Value = source[0].Sourceid;
+
+            SqlParameter idParam = new SqlParameter("@ID", SqlDbType.Int);
+            var newEntry = context.Products.FromSqlRaw(productquery, nameParam, authorParam, descParam, genreParam, subParam, publishParam, userParam).ToList();
+            idParam.Value = Convert.ToInt32(newEntry[0].Id);
+
+            context.Database.ExecuteSqlRaw(stocktakequery, sourceParam, idParam, priceParam, quantityParam);
+
+            return RedirectToAction("Item_Management");
+        }
         public IActionResult Delete_Item(string ID)
         {
             
