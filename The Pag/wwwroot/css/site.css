@@ -14,20 +14,57 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+.bodybg {
+    
+}
+
+.navbg {
+    /*Background-image: linear-gradient(to right, #8360c3, #2ebf91);*/
+}
+
+.imgheaderbg {
+    background-image: url(https://images.pexels.com/photos/2767814/pexels-photo-2767814.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .imgheader {
     padding: 80px;
     text-align: center;
-    background: #A9A9A9;
     color: white;
     font-size: 30px;
 }
 
 .pagebuffer {
-    padding: 80px;
+    padding: 60px;
     background: white;
+}
+
+.homegrid {
+    background: yellow;
+    border: 3px solid black;
+}
+
+.homegrid:hover {
+    cursor: pointer;
+}
+
+#gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    margin: auto;
+    height: 350px;
+}
+
+.hometiletext {
+    margin-top: 125px;
+    background-color: white;
+    border: 3px black;
+    border-radius: 30px;
 }
 
 
@@ -251,8 +288,32 @@ body {
 
  .searchbar {
      width: 700px;
+     border-radius: 55px;
  }
 
  .usergroup {
 
+ }
+
+ .btnmargin {
+     margin-top: 15px;
+     margin-right: 15px;
+     margin-bottom: 15px;
+ }
+
+ .navbutton {
+     transition: 0.3s;
+     font-weight: bold;
+     font-size: 20px;
+ }
+ .navbutton:hover {
+     text-decoration: underline;
+ }
+
+ .hometitle {
+     text-align: center;
+ }
+
+ .errorheading {
+     font-size: 75px;
  }
