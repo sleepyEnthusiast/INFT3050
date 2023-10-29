@@ -74,7 +74,7 @@ namespace The_Pag.Controllers
             return View();
         }
 
-        public IActionResult Edit_Item_Action(IFormCollection input)
+        public IActionResult Edit_Item_Action(IFormCollection input) // The actual item editing
         {
             string productquery =
             "UPDATE Product " +
@@ -131,7 +131,7 @@ namespace The_Pag.Controllers
                 "SET " +
                     "Price = @Price, " +
                     "Quantity = @Quantity " +
-            "WHERE ItemId = @ID;";
+            "WHERE ProductId = @ID;";
 
             SqlParameter priceParam = new SqlParameter("@Price", SqlDbType.Float);
             priceParam.Value = Convert.ToDecimal(input["Price"]);
@@ -142,6 +142,27 @@ namespace The_Pag.Controllers
             context.Database.ExecuteSqlRaw(productquery, nameParam, authorParam, descParam, genreParam, subParam, publishParam, userParam, idParam);
             
             context.Database.ExecuteSqlRaw(stocktakequery, priceParam, quantityParam, idParam);
+
+            return RedirectToAction("Item_Management");
+        }
+        
+        public IActionResult Delete_Item(string ID)
+        {
+            
+            string productquery =   "DELETE FROM Product " +
+                                    "WHERE ID = @ID;";
+            string stockquery =     "DELETE FROM StockTake " +
+                                    "WHERE ProductId = @ID;";
+            string orderquery =     "DELETE FROM ProductsInOrders " +
+                                    "WHERE produktId = @ID;";
+
+            SqlParameter idParam = new SqlParameter("@ID", SqlDbType.Int);
+            idParam.Value = Convert.ToInt32(ID);
+
+            context.Database.ExecuteSqlRaw(orderquery, idParam);
+            context.Database.ExecuteSqlRaw(stockquery, idParam);
+            context.Database.ExecuteSqlRaw(productquery, idParam);
+            
 
             return RedirectToAction("Item_Management");
         }
