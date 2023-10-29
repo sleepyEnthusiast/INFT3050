@@ -4,9 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace The_Pag.Models;
+namespace The_Pag;
 
 [Table("TO")]
+[Index("PatronId", Name = "IX_TO_PatronId")]
 public partial class To
 {
     [Key]

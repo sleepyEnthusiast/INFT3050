@@ -4,9 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace The_Pag.Models;
+namespace The_Pag;
 
 [Table("Source")]
+[Index("Genre", Name = "IX_Source_Genre")]
 public partial class Source
 {
     [Key]

@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Edit Item";
+}
+
+<div class="accountheader">
+    <h1>ViewBag.name</h1>
+</div>
+<hr />
+@using (Html.BeginForm("Add_Item_Action", "Admin", FormMethod.Post))
+{
+    <input class="form-control userinput" type="hidden" name="Genre" value="@ViewBag.genre">
+
+    <div class="accountinfo">
+        <div class="row">
+            <div class="column ordercolumn">
+                <label for="Name">Name:</label>
+                <input class="form-control userinput" type="text" name="Name" value="New Name" id="Name">
+                <label for="Author">Author:</label>
+                <input class="form-control userinput" type="text" name="Author" value="New Author" id="Author">
+                <label for="Description">Description:</label>
+                <textarea class="form-control userinput" type="text" name="Description" rows="4" cols="50" id="Description">New Description</textarea>
+            </div>
+            <div class="column ordercolumn">
+                <label for="subGenre">Genre:</label>
+                <select class="form-control userinput" name="subGenre" id="subGenre">
+                    @foreach (var genre in ViewBag.genreList)
+                    {
+                        <option value="@genre">@genre</option>
+                    }
+                </select>
+                <label for="source">Genre:</label>
+                <select class="form-control userinput" name="source" id="source">
+                    @foreach (var source in ViewBag.sources)
+                    {
+                        <option value="@source.SourceName">@source.SourceName</option>
+                    }
+                </select>
+                <label for="publishedDate">Publish Date:</label>
+                <input class="form-control userinput" type="date" id="publishedDate" name="publishedDate" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+            </div>
+            <div class="column ordercolumn">
+                <label for="Price">Price:</label>
+                <input class="form-control userinput" type="number" id="Price" name="Price" step="0.01" min="0" value="0">
+                <label for="Quantity">Quantity:</label>
+                <input class="form-control userinput" type="number" id="Quantity" name="Quantity" value="0">
+            </div>
+        </div>
+
+    </div>
+    <div class="d-flex flex-md-row-reverse">
+        <button class="btn btn-primary editbutton" type="submit">Save</button>
+        <button class="btn btn-primary cancelbutton" onclick="history.back()">Cancel</button>
+    </div>
+}

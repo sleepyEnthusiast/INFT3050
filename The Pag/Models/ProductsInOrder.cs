@@ -4,9 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace The_Pag.Models;
+namespace The_Pag;
 
 [Keyless]
+[Index("OrderId", Name = "IX_ProductsInOrders_OrderId")]
+[Index("ProduktId", Name = "IX_ProductsInOrders_produktId")]
 public partial class ProductsInOrder
 {
     public int? OrderId { get; set; }

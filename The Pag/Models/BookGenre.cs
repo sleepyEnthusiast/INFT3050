@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace The_Pag.Models;
+namespace The_Pag;
 
 [Table("Book_genre")]
 public partial class BookGenre

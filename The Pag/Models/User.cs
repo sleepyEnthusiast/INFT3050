@@ -4,17 +4,16 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace The_Pag.Models;
+namespace The_Pag;
 
 [Table("User")]
 public partial class User
 {
-    [Column("UserId")]
-    public int UserId { get; set; }
-
     [Key]
     [StringLength(50)]
     public string UserName { get; set; } = null!;
+
+    public int UserId { get; set; }
 
     [StringLength(255)]
     public string? Email { get; set; }

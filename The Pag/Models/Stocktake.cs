@@ -4,9 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace The_Pag.Models;
+namespace The_Pag;
 
 [Table("Stocktake")]
+[Index("ProductId", Name = "IX_Stocktake_ProductId")]
+[Index("SourceId", Name = "IX_Stocktake_SourceId")]
 public partial class Stocktake
 {
     [Key]

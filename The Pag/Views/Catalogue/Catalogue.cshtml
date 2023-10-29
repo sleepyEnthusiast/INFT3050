@@ -1,21 +1,65 @@
 ﻿@{
     ViewData["Title"] = "Catalogue";
 }
+
     <div>
         <h1>Catalogue</h1>
 
-        <div class="cataloguenav">
-            <a href="~/Catalogue/Catalogue/movies/drama/name/desc">Movies</a>
-            <a href="~/Catalogue/Catalogue/books/fiction/name/desc">Books</a>
-            <a href="~/Catalogue/Catalogue/games/rpg/name/desc">Games</a>
-        </div>
+    <div>
+        @using (Html.BeginForm("Catalogue", "Catalogue", FormMethod.Get))
+        {
+            var typeDef = ViewBag.type;
+            var genreDef = ViewBag.genre;
+            var sortDef = ViewBag.sort;
+            var orderDef = ViewBag.order;
+
+            <input type="hidden" name="productType" value="@typeDef" />
+
+            <select name="genre" id="genre">
+                @foreach (var genre in ViewBag.genres)
+                {
+                    bool select = (genre == genreDef) ? true : false;
+                    @if (select)
+                    {
+                        <option value="@genre" selected>@genre</option>
+                    } else
+                    {
+                        <option value="@genre">@genre</option>
+                    }
+                }
+            </select>
+
+            <select name="sortBy">
+                @foreach (var option in ViewBag.sortOptions)
+                {
+                    bool select = (option == sortDef) ? true : false;
+                    @if (select)
+                    {
+                        <option value="@option" selected>@option</option>
+                    } else
+                    {
+                        <option value="@option">@option</option>
+                    }
+                }
+            </select>
+
+            <select name="order">
+                @if (orderDef == "asc")
+                {
+                    <option value="asc" selected>Ascending</option>
+                    <option value="desc">Descending</option>
+                } else
+                {
+                    <option value="asc">Ascending</option>
+                    <option value="desc" selected>Descending</option>
+                }
+            </select>
+
+            <input type="submit" value="Filter">
+        }
+    </div>
 
 
-        <div>
-        <form>
-        <!-- Render form dynamically containing genres specific to their product type -->
-        </form>
-        </div>
         <table class = "table cataloguetable">
             <thead class = "tableheader">
                 <tr>
@@ -35,22 +79,7 @@
                         <tr>
                             <td>@(item.Name ?? "Unknown")</td>
                             <td>@(item.Author ?? "Unknown")</td>
-                            @if (item.Genre == 1) // Converts genre data into readable text
-                            {
-                                <td>Book</td>
-                            }
-                            else if (item.Genre == 2)
-                            {
-                                <td>Movie</td>
-                            }
-                            else if (item.Genre == 3)
-                            {
-                                <td>Game</td>
-                            }
-                            else
-                            {
-                                <td>Unknown</td>
-                            }
+                            <td>@ViewBag.selectedGenres[item.SubGenre.Value-1]</td>
                             <td>@(item.Published.HasValue ? item.Published.Value.ToString("yyyy") : "Unknown")</td>
                             <td><a class="btn btn-primary" href="~/Catalogue/Item/@(item.Id)">View Item</a></td>
                         </tr>

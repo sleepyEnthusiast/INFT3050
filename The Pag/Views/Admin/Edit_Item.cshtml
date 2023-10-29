@@ -3,31 +3,68 @@
 }
 
 <div class="accountheader">
-
+    <h1>ViewBag.name</h1>
 </div>
 <hr />
-<form class="accountform">
+@using (Html.BeginForm("Edit_Item_Action", "Admin", FormMethod.Post))
+{
+    <input class="form-control userinput" type="hidden" name="ID" value="@ViewBag.item.Id">
+
     <div class="accountinfo">
         <div class="row">
             <div class="column ordercolumn">
-                <div class="form-group">
-                    <input class="form-control userinput" type="text" placeholder="Item name" value="UserOrderedItem">
-                    <input id="form1" min="1" name="quantity" value="1" type="number"
-                           class="form-control form-control-sm pull-right" style="width: 50px;" />
-                </div>
-                <input class="form-control userinput" type="text" placeholder="Email" value="UserEmail">
-                <input class="form-control userinput" type="text" placeholder="Address" value="UserAddress" />
-                <input class="form-control userinput" type="text" placeholder="Postcode" value="UserPostcode" />
+                <label for="Name">Name:</label>
+                <input class="form-control userinput" type="text" name="Name" value="@ViewBag.item.Name" id="Name">
+                <label for="Author">Author:</label>
+                <input class="form-control userinput" type="text" name="Author" value="@ViewBag.item.Author" id="Author">
+                <label for="Description">Description:</label>
+                <textarea class="form-control userinput" type="text" name="Description" rows="4" cols="50" id="Description">@ViewBag.item.Description</textarea>
             </div>
             <div class="column ordercolumn">
-                <input class="userinput form-control" type="text" placeholder="Suburb" value="UserSuburb">
-                <input class="form-control userinput" type="text" placeholder="State" value="UserState">
-                <input class="form-control userinput" type="text" placeholder="Phone Number" value="UserPhNumber">
+                <label for="Genre">Product Type:</label>
+                <select class="form-control userinput" name="Genre" id="Genre">
+                    @foreach (var type in ViewBag.productList)
+                    {
+                        bool select = (type == ViewBag.product) ? true : false;
+                        @if (select)
+                        {
+                            <option value="@type" selected>@type</option>
+                        }
+                        else
+                        {
+                            <option value="@type">@type</option>
+                        }
+                    }
+                </select>
+                <label for="subGenre">Genre:</label>
+                <select class="form-control userinput" name="subGenre" id="subGenre">
+                    @foreach (var genre in ViewBag.genreList)
+                    {
+                        bool select = (genre == ViewBag.genre) ? true : false;
+                        @if (select)
+                        {
+                            <option value="@genre" selected>@genre</option>
+                        }
+                        else
+                        {
+                            <option value="@genre">@genre</option>
+                        }
+                    }
+                </select>
+                <label for="publishedDate">Publish Date:</label>
+                <input class="form-control userinput" type="date" id="publishedDate" name="publishedDate" value="@((ViewBag.item.Published as DateTime?)?.ToString("yyyy-MM-dd"))">
+            </div>
+            <div class="column ordercolumn">
+                <label for="Price">Price:</label>
+                <input class="form-control userinput" type="number" id="Price" name="Price" step="0.01" min="0" value="@ViewBag.stocktake.Price">
+                <label for="Quantity">Quantity:</label>
+                <input class="form-control userinput" type="number" id="Quantity" name="Quantity" value="@ViewBag.stocktake.Quantity">
             </div>
         </div>
+
     </div>
     <div class="d-flex flex-md-row-reverse">
-        <a href="~/Catalogue/Item" class="btn btn-primary editbutton">Save</a>
-        <btn class="btn btn-primary cancelbutton" onclick="history.back()">Cancel</btn>
+        <button class="btn btn-primary editbutton" type="submit">Save</button>
+        <button class="btn btn-primary cancelbutton" onclick="history.back()">Cancel</button>
     </div>
-</form>
+}
