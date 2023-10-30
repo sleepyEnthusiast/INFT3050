@@ -66,12 +66,13 @@ namespace The_Pag.Controllers
                 case 3:
                     selectedGenre = gameGenres;
                     break;
+
             }
 
             var stocktake = context.Stocktakes.FromSqlRaw("SELECT * FROM Stocktake WHERE ProductId = @ID", idParam).ToList();
             ViewBag.stocktake = stocktake[0];
 
-            ViewBag.genre = selectedGenre.ElementAt(genreID - 1);
+            ViewBag.genre = selectedGenre.ElementAt(genreID);
             ViewBag.genreList = selectedGenre;
             ViewBag.product = productTypes.ElementAt(productID - 1);
             ViewBag.productList = productTypes;
