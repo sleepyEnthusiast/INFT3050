@@ -25,6 +25,7 @@ public partial class To
     [StringLength(255)]
     public string? StreetAddress { get; set; }
 
+    [StringLength(4)]
     public int? PostCode { get; set; }
 
     [StringLength(50)]

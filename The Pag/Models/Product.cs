@@ -15,10 +15,12 @@ public partial class Product
     [Column("ID")]
     public int Id { get; set; }
 
-    [StringLength(255)]
+    [Required]
+    [StringLength(255, MinimumLength = 1)]
     public string? Name { get; set; }
 
-    [StringLength(255)]
+    [Required]
+    [StringLength(255, MinimumLength = 1)]
     public string? Author { get; set; }
 
     public string? Description { get; set; }
