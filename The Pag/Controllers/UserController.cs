@@ -34,11 +34,11 @@ namespace The_Pag.Controllers
 
             if (PatronOrUser)
             {
-                var user = context.Patrons.FromSqlRaw("SELECT * FROM [Patrons] WHERE UserID = @User;", userParam).ToList();
+                var user = context.Users.FromSqlRaw("SELECT * FROM [User] WHERE UserId = @User;", userParam).ToList();
                 ViewBag.user = user[0];
             } else
             {
-                var user = context.Users.FromSqlRaw("SELECT * FROM [User] WHERE UserId = @User;", userParam).ToList();
+                var user = context.Patrons.FromSqlRaw("SELECT * FROM [Patrons] WHERE UserID = @User;", userParam).ToList();
                 ViewBag.user = user[0];
             }
 
