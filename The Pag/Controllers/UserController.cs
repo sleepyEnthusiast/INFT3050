@@ -48,8 +48,34 @@ namespace The_Pag.Controllers
         }
         public IActionResult Account_Create()
         {
+            if (CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+
+
 
             return View();
+        }
+
+        public IActionResult Account_Create_Action(IFormCollection input)
+        {
+            if (CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+
+            SqlParameter emailParam = new SqlParameter("@Email", SqlDbType.NVarChar);
+            emailParam.Value = Convert.ToString(input["email"]);
+
+            if (context.Patrons.Any(param => param.Email == emailParam.Value)) return RedirectToAction("Account_Create"); // No existing emails
+
+            SqlParameter nameParam = new SqlParameter("@Name", SqlDbType.NVarChar);
+            nameParam.Value = Convert.ToString(input["name"]);
+
+            SqlParameter passParam = new SqlParameter("@Pass", SqlDbType.VarChar);
+            passParam.Value = Convert.ToString(input["password"]);
+
+            string query = "INSERT INTO [Patrons] (Email, Name, Salt, HashPW) " +
+                            "VALUES (@Email, @Name, 'Not Implemented', @Pass);";
+
+            context.Database.ExecuteSqlRaw(query, emailParam, nameParam, passParam);
+
+            return Redirect("~/");
         }
         public IActionResult Login()
         {
