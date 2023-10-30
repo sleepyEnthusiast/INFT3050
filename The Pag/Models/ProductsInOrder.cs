@@ -16,6 +16,7 @@ public partial class ProductsInOrder
     [Column("produktId")]
     public int? ProduktId { get; set; }
 
+    [Required]
     public int? Quantity { get; set; }
 
     [ForeignKey("OrderId")]

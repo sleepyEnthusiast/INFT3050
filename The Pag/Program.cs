@@ -34,7 +34,7 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "admin",
     pattern: "{controller=Admin}/{action=Edit_Item}/{id?}",
-    constraints: new {action= "Edit_Item|Delete_Item|Add_Item|Edit_User|Delete_User|Add_User|Item_Management|User_Management" }
+    constraints: new {action= "Edit_Item|Delete_Item|Add_Item|Edit_User|Delete_User|Add_User|Edit_Patron|Delete_Patron|Add_Patron|Item_Management|User_Management|Patron_Management" }
 );
 
 app.MapControllerRoute(

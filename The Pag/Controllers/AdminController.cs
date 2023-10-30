@@ -409,6 +409,92 @@ namespace The_Pag.Controllers
             return RedirectToAction("User_Management");
 
         }
+
+        public IActionResult Edit_Patron(string ID)
+        {
+            if (ID == null) return RedirectToAction("Patron_Management");
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+            if (CookieConfirm.HavePermission() != 3) return Redirect("~/");
+
+            string query = "SELECT * FROM [Patron] WHERE UserID = @ID;";
+
+            SqlParameter idParam = new SqlParameter("@ID", SqlDbType.Int);
+            idParam.Value = int.Parse(ID);
+
+            var display = context.Patrons.FromSqlRaw(query, idParam).ToList();
+
+            ViewBag.user = display[0];
+
+            return View();
+
+        }
+
+        public IActionResult Add_Patron()
+        {
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+            if (CookieConfirm.HavePermission() == 1 || CookieConfirm.HavePermission() == 0) return Redirect("~/");
+
+
+            return View();
+        }
+        public IActionResult Edit_Patron_Action(IFormCollection input)
+        {
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+            if (CookieConfirm.HavePermission() != 3) return Redirect("~/");
+            SqlParameter emailParam = new SqlParameter("@Email", SqlDbType.NVarChar);
+            emailParam.Value = Convert.ToString(input["email"]);
+
+            SqlParameter nameParam = new SqlParameter("@Name", SqlDbType.NVarChar);
+            nameParam.Value = Convert.ToString(input["name"]);
+
+            SqlParameter userParam = new SqlParameter("@User", SqlDbType.NVarChar);
+            userParam.Value = Convert.ToString(input["ID"]);
+
+            string query = "UPDATE [Patrons] " +
+                           "SET " +
+                            "Email = @Email, " +
+                            "Name = @Name, " +
+                           "WHERE UserID = @User;";
+
+            context.Database.ExecuteSqlRaw(query, emailParam, nameParam, userParam);
+
+            return RedirectToAction("Patron_Management");
+        }
+
+        public IActionResult Add_Patron_Action(IFormCollection input)
+        {
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+            if (CookieConfirm.HavePermission() != 3) return Redirect("~/");
+            
+            SqlParameter emailParam = new SqlParameter("@Email", SqlDbType.NVarChar);
+            emailParam.Value = Convert.ToString(input["email"]);
+
+            SqlParameter nameParam = new SqlParameter("@Name", SqlDbType.NVarChar);
+            nameParam.Value = Convert.ToString(input["name"]);
+
+            string query =  "INSERT INTO [Patrons] (Email, Name, Salt, HashPW) " +
+                            "VALUES (@Email, @Name, 'Not Implemented', 'Not Implemented');";
+
+            context.Database.ExecuteSqlRaw(query, emailParam, nameParam);
+
+            return RedirectToAction("Patron_Management");
+        }
+        public IActionResult Delete_Patron(string ID)
+        {
+            if (ID == null) return RedirectToAction("Patron_Management");
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+            if (CookieConfirm.HavePermission() != 3) return Redirect("~/");
+
+            SqlParameter userParam = new SqlParameter("@User", SqlDbType.Int);
+            userParam.Value = Convert.ToInt32(ID);
+
+            context.Database.ExecuteSqlRaw("DELETE FROM [Patron] " +
+                                            "WHERE UserID = @User;",
+                                            userParam);
+
+            return RedirectToAction("Patron_Management");
+
+        }
         public IActionResult Item_Management()
         {
             if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
@@ -429,6 +515,14 @@ namespace The_Pag.Controllers
             return View();
         }
 
+        public IActionResult Patron_Management()
+        {
+            IQueryable<Patron> userList = context.Patrons; // Query initiation
+            var listofusers = userList.ToList();  // Query execution, creates list of models
+            ViewBag.userList = listofusers; // Puts results into the BAG
+
+            return View();
+        }
 
     }
 }

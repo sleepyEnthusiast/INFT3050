@@ -19,6 +19,7 @@ public partial class Order
     [StringLength(255)]
     public string? StreetAddress { get; set; }
 
+    [StringLength(4)]
     public int? PostCode { get; set; }
 
     [StringLength(255)]

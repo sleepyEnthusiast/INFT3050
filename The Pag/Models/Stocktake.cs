@@ -20,6 +20,7 @@ public partial class Stocktake
 
     public int? Quantity { get; set; }
 
+    [Required]
     public double? Price { get; set; }
 
     [ForeignKey("ProductId")]
