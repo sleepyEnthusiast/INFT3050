@@ -30,17 +30,19 @@ namespace The_Pag.Controllers
             SqlParameter userParam = new SqlParameter("@User", SqlDbType.Int);
             userParam.Value = CookieConfirm.GetUserID(token);
 
-            if (CookieConfirm.GetUserOrPatron(token))
-            {
-                var user = context.Users.FromSqlRaw("SELECT * FROM [User] WHERE UserId = @User;", userParam).ToList();
-                ViewBag.user = user[0];
-            } else
+            bool PatronOrUser = CookieConfirm.GetUserOrPatron(token);
+
+            if (PatronOrUser)
             {
                 var user = context.Patrons.FromSqlRaw("SELECT * FROM [Patrons] WHERE UserID = @User;", userParam).ToList();
                 ViewBag.user = user[0];
+            } else
+            {
+                var user = context.Users.FromSqlRaw("SELECT * FROM [User] WHERE UserId = @User;", userParam).ToList();
+                ViewBag.user = user[0];
             }
-            
-            
+
+            ViewBag.PatronOrUser = PatronOrUser;
 
             return View();
         }
@@ -155,6 +157,21 @@ namespace The_Pag.Controllers
         {
             if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
 
+            string query =  "SELECT Orders.OrderID, Orders.customer, Orders.StreetAddress, Orders.PostCode, Orders.Suburb, Orders.State " +
+                            "FROM [Orders] " +
+                            "INNER JOIN [TO] " +
+                            "ON Orders.customer = [TO].customerID " +
+                            "WHERE [TO].PatronId = @ID;";
+
+            string token = Request.Cookies["TokenCookie"];
+
+            SqlParameter userParam = new SqlParameter("@ID", SqlDbType.Int);
+            userParam.Value = CookieConfirm.GetUserID(token);
+
+            var orders = context.Orders.FromSqlRaw(query, userParam).ToList();
+
+            ViewBag.orders = orders;
+
             return View();
         }
 
@@ -162,6 +179,7 @@ namespace The_Pag.Controllers
         {
             if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
 
+            
             return View();
         }
     }

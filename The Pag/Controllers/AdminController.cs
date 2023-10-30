@@ -61,10 +61,10 @@ namespace The_Pag.Controllers
                     selectedGenre = bookGenres;
                     break;
                 case 2:
-                    selectedGenre = gameGenres;
+                    selectedGenre = movieGenres;
                     break;
                 case 3:
-                    selectedGenre = movieGenres;
+                    selectedGenre = gameGenres;
                     break;
             }
 
@@ -94,10 +94,10 @@ namespace The_Pag.Controllers
                     selectedGenre = bookGenres;
                     break;
                 case 2:
-                    selectedGenre = gameGenres;
+                    selectedGenre = movieGenres;
                     break;
                 case 3:
-                    selectedGenre = movieGenres;
+                    selectedGenre = gameGenres;
                     break;
             }
 
@@ -151,10 +151,10 @@ namespace The_Pag.Controllers
                     subParam.Value = Convert.ToInt32(bookGenres.IndexOf(input["subGenre"]) + 1);
                     break;
                 case 2:
-                    subParam.Value = Convert.ToInt32(gameGenres.IndexOf(input["subGenre"]) + 1);
+                    subParam.Value = Convert.ToInt32(movieGenres.IndexOf(input["subGenre"]) + 1);
                     break;
                 case 3:
-                    subParam.Value = Convert.ToInt32(movieGenres.IndexOf(input["subGenre"]) + 1);
+                    subParam.Value = Convert.ToInt32(gameGenres.IndexOf(input["subGenre"]) + 1);
                     break;
             }
 
@@ -214,10 +214,10 @@ namespace The_Pag.Controllers
                     subParam.Value = Convert.ToInt32(bookGenres.IndexOf(input["subGenre"]) + 1);
                     break;
                 case 2:
-                    subParam.Value = Convert.ToInt32(gameGenres.IndexOf(input["subGenre"]) + 1);
+                    subParam.Value = Convert.ToInt32(movieGenres.IndexOf(input["subGenre"]) + 1);
                     break;
                 case 3:
-                    subParam.Value = Convert.ToInt32(movieGenres.IndexOf(input["subGenre"]) + 1);
+                    subParam.Value = Convert.ToInt32(gameGenres.IndexOf(input["subGenre"]) + 1);
                     break;
             }
 
@@ -416,7 +416,7 @@ namespace The_Pag.Controllers
             if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
             if (CookieConfirm.HavePermission() != 3) return Redirect("~/");
 
-            string query = "SELECT * FROM [Patron] WHERE UserID = @ID;";
+            string query = "SELECT * FROM [Patrons] WHERE UserID = @ID;";
 
             SqlParameter idParam = new SqlParameter("@ID", SqlDbType.Int);
             idParam.Value = int.Parse(ID);
@@ -453,7 +453,7 @@ namespace The_Pag.Controllers
             string query = "UPDATE [Patrons] " +
                            "SET " +
                             "Email = @Email, " +
-                            "Name = @Name, " +
+                            "Name = @Name " +
                            "WHERE UserID = @User;";
 
             context.Database.ExecuteSqlRaw(query, emailParam, nameParam, userParam);

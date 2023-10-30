@@ -5,32 +5,22 @@
 
 <div class="accountheader">
     <h1 class="title">Your account</h1>
-    <btn onclick="window.location.href='Order_History'" class="btn btn-primary viewordersbutton">View Orders</btn>
+    @if (ViewBag.PatronOrUser)
+    {
+        <btn onclick="window.location.href='Order_History'" class="btn btn-primary viewordersbutton">View Orders</btn>
+    }
 </div> 
 
 <hr />
 
 @if (CookieConfirm.HavePermission() == 3)
 {
-    <div class="text-center btn-group-horizontal">
-        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="Item_Management">Manage Items</a>
-        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="User_Management">Manage Users</a>
-        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="Patron_Management">Manage Patrons</a>
+    <div class="text-center">
+        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="Item_Management">Item Management</a>
+        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="User_Management">User Management</a>
+        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="Patron_Management">Patron Management</a>
     </div>
 }else
-{
-    <div></div>
-}
-
-@if (CookieConfirm.HavePermission() == 2)
-{
-   <div class="text-center btn-group-horizontal">
-        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="Item_Management">Manage Items</a>
-        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="User_Management">Manage Users</a>
-        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="Patron_Management">Manage Patrons</a>
-    </div>
-}
-else
 {
     <div></div>
 }

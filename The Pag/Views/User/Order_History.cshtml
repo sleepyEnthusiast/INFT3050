@@ -11,25 +11,22 @@
         <table class="table orderstable">
             <thead>
                 <tr>
-                    <th>Item</th>
-                    <th>Quantity</th>
-                    <th>Address</th>
-                    <th>Postcode</th>
+                    <th>Order Id</th>
+                    <th>Customer</th>
                     <th>Suburb</th>
-                    <th>State</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
+                @foreach (Order detail in ViewBag.orders)
+                {
                 <tr>
-                    <td>Item</td>
-                    <td>Quantity</td>
-                    <td>Address</td>
-                    <th>Postcode</th>
-                    <th>Suburb</th>
-                    <th>State</th>
-                    <th><a href="~/User/Order_Details" class="btn btn-primary">View Details</a></th>
+                    <td>@detail.OrderId</td>
+                    <td>@detail.Customer</td>
+                    <td>@detail.Suburb</td>
+                    <th><a href="~/User/Order_Details/@detail.OrderId" class="btn btn-primary">View Details</a></th>
                 </tr>
+                }
             </tbody>
         </table>
     </div>
