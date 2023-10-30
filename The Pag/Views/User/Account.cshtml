@@ -16,14 +16,28 @@
 @if (CookieConfirm.HavePermission() == 3)
 {
     <div class="text-center">
-        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="Item_Management">Item Management</a>
-        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="User_Management">User Management</a>
-        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="Patron_Management">Patron Management</a>
+        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="Item_Management">Manage Items</a>
+        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="User_Management">Manage Users</a>
+        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="Patron_Management">Manage Patrons</a>
     </div>
 }else
 {
     <div></div>
 }
+
+@if (CookieConfirm.HavePermission() == 2)
+{
+    <div class="text-center">
+        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="Item_Management">Manage Items</a>
+        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="User_Management">Mange Users</a>
+        <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="Patron_Management">Manage Patrons</a>
+    </div>
+}
+else
+{
+    <div></div>
+}
+
 <form class="accountform"> 
     <div class="accountinfo">
         <h2>Email:</h2>
@@ -32,6 +46,6 @@
             <p>@ViewBag.user.Name</p>
     </div>
     <div class="d-flex flex-md-row-reverse">
-        <a class="btn btn-primary editbutton" href="~/Admin/Edit_User" role="button">Edit</a>
+        <a class="btn btn-primary editbutton" href="~/Admin/Edit_User">Edit</a>
     </div>
 </form>

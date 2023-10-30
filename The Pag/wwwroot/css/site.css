@@ -43,6 +43,11 @@ body {
     background: white;
 }
 
+.tinybuffer {
+    padding: 15px;
+    background: white;
+}
+
 .homegrid {
     border: 3px solid black;
     background-size: cover;
@@ -101,40 +106,18 @@ body {
     margin-right: 15px;
 }
 
+.addbutton {
+    background-color: green;
+}
+
+.addbutton:hover {
+    background-color: darkgreen;
+    transition: 0.3s;
+}
+
 .cataloguetable {
     border-style: solid;
 }
-
-/* ITEM CARD CSS*/
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin: auto;
-    text-align: center;
-    font-family: arial;
-}
-
-.price {
-    color: grey;
-    font-size: 22px;
-}
-
-.card button {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-}
-
-.card button:hover {
-        opacity: 0.7;
-    }
-    /*ITEM CARD CSS*/
 
 .itemtitle {
         display: inline;
@@ -235,13 +218,13 @@ body {
     text-align: center;
 }
 
-.deluserbtn {
-    margin:auto;
+.delbtn {
     background-color: red;
-    text-align: center;
-    font-weight: bold;
-    border: 1px solid;
-    border-color: black;
+}
+
+.delbtn:hover {
+    background-color: darkred;
+    transition: 0.3s;
 }
 
 .deluserbtn:hover {

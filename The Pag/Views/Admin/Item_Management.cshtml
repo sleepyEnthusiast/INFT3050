@@ -6,13 +6,13 @@
     <h1>Admin Item Management</h1>
     <h2>Ctrl + F to search</h2>
     <div class="p-3">
-    <a class="btn btn-primary" href="~/Admin/Add_Item/1">Add Book</a>
-    <a class="btn btn-primary" href="~/Admin/Add_Item/2">Add Game</a>
-    <a class="btn btn-primary" href="~/Admin/Add_Item/3">Add Movie</a>
+    <a class="btn btn-primary addbutton" href="~/Admin/Add_Item/1">+ Add Book</a>
+    <a class="btn btn-primary addbutton" href="~/Admin/Add_Item/2">+ Add Game</a>
+    <a class="btn btn-primary addbutton" href="~/Admin/Add_Item/3">+ Add Movie</a>
     </div>
     <table class="table cataloguetable">
         <thead>
-            <tr>
+            <tr class="tableheader">
                 <!-- Table headers -->
                 <th>Product Name</th>
                 <th>Author</th>
@@ -20,6 +20,8 @@
                 <th>Published</th>
                 <th>Updated By</th>
                 <th>Last Update</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -33,7 +35,7 @@
                     <td>@item.LastUpdatedBy</td>
                     <td>@item.LastUpdated</td>
                     <td><a class="btn btn-primary" href="~/Admin/Edit_Item/@(item.Id)">Edit</a></td>
-                    <td><a class="btn btn-primary" href="~/Admin/Delete_Item/@(item.Id)">Delete</a></td>
+                    <td><a class="btn btn-primary delbtn" href="~/Admin/Delete_Item/@(item.Id)">Delete</a></td>
                 </tr>
             }
         </tbody>
