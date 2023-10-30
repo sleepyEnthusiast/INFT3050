@@ -94,10 +94,10 @@ namespace The_Pag.Controllers
                     selectedGenre = bookGenres;
                     break;
                 case 2:
-                    selectedGenre = movieGenres;
+                    selectedGenre = gameGenres;
                     break;
                 case 3:
-                    selectedGenre = gameGenres;
+                    selectedGenre = movieGenres;
                     break;
             }
 

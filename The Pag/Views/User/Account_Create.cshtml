@@ -2,7 +2,8 @@
     ViewData["Title"] = "Create an Account";
 }
 <!-- Need to adjust user input lengths to look symmetrical. -->
-<form class="accountform"> <!-- Account creation form -->
+@using (Html.BeginForm("Account_Create_Action", "User", FormMethod.Post))
+{
     <h1 style="text-align: center;">Create an Account:</h1>
     <div class="form-group accountcreatelabel">
         <label for="">Email:</label>
@@ -33,5 +34,5 @@
     </div>
 
     <button type="submit" class="btn btn-primary createaccountbutton">Create Account</button>
-</form>
+}
 <!-- Referenced from https://getbootstrap.com/docs/4.1/components/forms/ (bootstrap documentation) -->
