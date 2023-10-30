@@ -1,13 +1,16 @@
 ﻿@{
     ViewData["Title"] = "Create an Account";
 }
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <!-- Need to adjust user input lengths to look symmetrical. -->
 @using (Html.BeginForm("Account_Create_Action", "User", FormMethod.Post))
 {
     <h1 style="text-align: center;">Create an Account:</h1>
     <div class="form-group accountcreatelabel">
         <label for="">Email:</label>
-        <input type="text" class="form-control userinput" name="email" id="inputEmail" placeholder="Email">
+        <input type="email" class="form-control userinput" name="email" id="inputEmail" placeholder="Email">
     </div>
 
     <div class="form-row"> <!-- Won't display them side by side on UI anymore. Needs fixing.-->
@@ -29,6 +32,61 @@
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary createaccountbutton">Create Account</button>
+    <button type="submit" id="Create" class="btn btn-primary createaccountbutton">Create Account</button>
 }
 <!-- Referenced from https://getbootstrap.com/docs/4.1/components/forms/ (bootstrap documentation) -->
+
+<script>
+    // Clientside validation
+    $(document).ready(function () {
+        $("#Create").click(function () {
+            var inputemail, inputpassword, inputname;
+            inputemail = $("#inputEmail").val();
+            inputpassword = $("#password").val();
+            inputname = $("#name").val();
+
+            if (inputemail == '') {
+                alert("Please input an email");
+                return false;
+            }
+
+            if (inputname.length > 255) {
+                alert("Email is too long");
+                return false;
+            }
+
+            if (inputpassword == '') {
+                alert("Please input a password");
+                return false;
+            }
+
+            if (inputpassword.length > 255) {
+                alert("Password is too long");
+                return false;
+            }
+
+            if (inputname == '') {
+                alert("Please input a name");
+                return false;
+            }
+
+            if (inputname.length > 40) {
+                alert("Name is longer than 40 characters");
+                return false;
+            }
+
+            const response = confirm("Confirm create account?")
+
+            if ($("#gridCheck").is(":checked")) {
+                $("#gridCheck").val(1);
+            } else {
+                $("#gridCheck").val(0);
+            }
+
+            if ($("#gridCheck").val() == 0) {
+                alert("Please agree to the terms of service");
+                return false;
+            }
+        });
+    });
+</script>
