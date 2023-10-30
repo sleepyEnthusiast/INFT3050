@@ -61,10 +61,10 @@ namespace The_Pag.Controllers
                     selectedGenre = bookGenres;
                     break;
                 case 2:
-                    selectedGenre = gameGenres;
+                    selectedGenre = movieGenres;
                     break;
                 case 3:
-                    selectedGenre = movieGenres;
+                    selectedGenre = gameGenres;
                     break;
             }
 
@@ -94,10 +94,10 @@ namespace The_Pag.Controllers
                     selectedGenre = bookGenres;
                     break;
                 case 2:
-                    selectedGenre = gameGenres;
+                    selectedGenre = movieGenres;
                     break;
                 case 3:
-                    selectedGenre = movieGenres;
+                    selectedGenre = gameGenres;
                     break;
             }
 
@@ -151,10 +151,10 @@ namespace The_Pag.Controllers
                     subParam.Value = Convert.ToInt32(bookGenres.IndexOf(input["subGenre"]) + 1);
                     break;
                 case 2:
-                    subParam.Value = Convert.ToInt32(gameGenres.IndexOf(input["subGenre"]) + 1);
+                    subParam.Value = Convert.ToInt32(movieGenres.IndexOf(input["subGenre"]) + 1);
                     break;
                 case 3:
-                    subParam.Value = Convert.ToInt32(movieGenres.IndexOf(input["subGenre"]) + 1);
+                    subParam.Value = Convert.ToInt32(gameGenres.IndexOf(input["subGenre"]) + 1);
                     break;
             }
 
@@ -214,10 +214,10 @@ namespace The_Pag.Controllers
                     subParam.Value = Convert.ToInt32(bookGenres.IndexOf(input["subGenre"]) + 1);
                     break;
                 case 2:
-                    subParam.Value = Convert.ToInt32(gameGenres.IndexOf(input["subGenre"]) + 1);
+                    subParam.Value = Convert.ToInt32(movieGenres.IndexOf(input["subGenre"]) + 1);
                     break;
                 case 3:
-                    subParam.Value = Convert.ToInt32(movieGenres.IndexOf(input["subGenre"]) + 1);
+                    subParam.Value = Convert.ToInt32(gameGenres.IndexOf(input["subGenre"]) + 1);
                     break;
             }
 
