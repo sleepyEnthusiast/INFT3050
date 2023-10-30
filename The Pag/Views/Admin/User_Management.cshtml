@@ -14,10 +14,6 @@
             <th>Email</th>
             <th>Name</th>
             <th>Admin Status</th>
-            <th>Salt</th>
-            <th>HashPW</th>
-            <th></th>
-            <th></th>
         </tr>
     </thead>
     <tbody class="table">
@@ -29,14 +25,12 @@
                 <td>@(detail.Email ?? "NULL")</td>
                 <td>@(detail.Name)</td>
                 <td>@(detail.IsAdmin)</td>
-                <td>@(detail.Salt)</td>
-                <td>@(detail.HashPw)</td>
+                <td>
+                <td><a class="edituserbtn btn" href="~/Admin/Edit_User/@(detail.UserId)">Edit</a></td>
                 <td>
                     <button class="deluserbtn btn" id="deleteuser">Delete</button>
                 </td>
-                <td>
-                    <button class="edituserbtn btn" id="edituser">Edit</button>
-                </td>
+                
             </tr>
         }
     </tbody>

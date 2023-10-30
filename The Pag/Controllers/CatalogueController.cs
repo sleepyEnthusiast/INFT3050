@@ -39,9 +39,6 @@ namespace The_Pag.Controllers
         public CatalogueController(StoreDbContext ctx)
         {
             context = ctx;
-
-            CookieConfirm.SetHttpContext(this.HttpContext);
-            CookieConfirm.SetDbContext(ctx);
         }
 
         public IActionResult Cart()

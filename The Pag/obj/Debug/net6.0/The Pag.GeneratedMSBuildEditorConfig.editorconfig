@@ -9,93 +9,93 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = The_Pag
 build_property.RootNamespace = The_Pag
-build_property.ProjectDir = C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag\
+build_property.ProjectDir = C:\Users\UDI\source\repos\sleepyEnthusiast\INFT3050\The Pag\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Jordan\Desktop\Y4 UNI\INFT3050\Assign1\INFT3050\The Pag
+build_property.MSBuildProjectDirectory = C:\Users\UDI\source\repos\sleepyEnthusiast\INFT3050\The Pag
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/Admin/Add_Item.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/Admin/Add_Item.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkX0l0ZW0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/Admin/Edit_Item.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/Admin/Edit_Item.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdF9JdGVtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/Admin/Edit_User.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/Admin/Edit_User.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdF9Vc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/Admin/Item_Management.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/Admin/Item_Management.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSXRlbV9NYW5hZ2VtZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/Admin/User_Management.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/Admin/User_Management.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlcl9NYW5hZ2VtZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/Catalogue/Cart.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/Catalogue/Cart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ3VlXENhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/Catalogue/Catalogue.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/Catalogue/Catalogue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ3VlXENhdGFsb2d1ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/Catalogue/Item.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/Catalogue/Item.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ3VlXEl0ZW0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/Home/Error.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/Home/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/Home/Index.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/Shared/Error.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/User/Account.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/User/Account.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBY2NvdW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/User/Account_Create.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/User/Account_Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxBY2NvdW50X0NyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/User/Login.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/User/Order_Details.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/User/Order_Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxPcmRlcl9EZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/User/Order_History.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/User/Order_History.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxPcmRlcl9IaXN0b3J5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/User/Update_Order_Details.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/User/Update_Order_Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVcGRhdGVfT3JkZXJfRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/_ViewImports.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/_ViewStart.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Jordan/Desktop/Y4 UNI/INFT3050/Assign1/INFT3050/The Pag/Views/Shared/_Layout.cshtml]
+[C:/Users/UDI/source/repos/sleepyEnthusiast/INFT3050/The Pag/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-rscbo4uvob

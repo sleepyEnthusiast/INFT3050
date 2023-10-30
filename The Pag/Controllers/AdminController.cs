@@ -35,15 +35,14 @@ namespace The_Pag.Controllers
         public AdminController(StoreDbContext ctx)
         {
             context = ctx;
-
-            CookieConfirm.SetHttpContext(this.HttpContext);
-            CookieConfirm.SetDbContext(ctx);
         }
         
         public IActionResult Edit_Item(string ID)
         {
-            if (!CookieConfirm.IsValidCookie()) return RedirectToAction("AdminController");
             if (ID == null) return RedirectToAction("Item_Management");
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+            if (CookieConfirm.HavePermission() != 3) return RedirectToAction("Item_Management");
+            
             string query = "SELECT * FROM Product WHERE ID = @ID";
             SqlParameter idParam = new SqlParameter("@ID", SqlDbType.Int);
             idParam.Value = int.Parse(ID);
@@ -84,7 +83,9 @@ namespace The_Pag.Controllers
 
         public IActionResult Add_Item(string ID)
         {
-            if (ID == null) return RedirectToAction("Item_Management");
+            if (ID == null) return Redirect("~/");
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return RedirectToAction("Item_Management");
+            if (CookieConfirm.HavePermission() != 3) return RedirectToAction("Item_Management");
 
             List<string> selectedGenre = new List<string>();
             switch (Convert.ToInt32(ID))
@@ -110,6 +111,9 @@ namespace The_Pag.Controllers
         }
         public IActionResult Edit_Item_Action(IFormCollection input) // The actual item editing
         {
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+            if (CookieConfirm.HavePermission() != 3) return RedirectToAction("Item_Management");
+
             string productquery =
             "UPDATE Product " +
                 "SET " +
@@ -182,6 +186,9 @@ namespace The_Pag.Controllers
         
         public IActionResult Add_Item_Action(IFormCollection input)
         {
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+            if (CookieConfirm.HavePermission() != 3) return RedirectToAction("Item_Management");
+
             string productquery = "INSERT INTO Product (Name, Author, Description, Genre, subGenre, Published, LastUpdatedBy, LastUpdated) " +
                                   "OUTPUT Inserted.ID, Inserted.Name, Inserted.Author, Inserted.Description, Inserted.Genre, Inserted.subGenre, Inserted.Published, Inserted.LastUpdatedby,Inserted.LastUpdated " +
                                   "VALUES (@Name, @Author, @Description, @Genre, @SubGenre, @Published, @User, GETDATE());";
@@ -268,7 +275,10 @@ namespace The_Pag.Controllers
         }
         public IActionResult Delete_Item(string ID)
         {
-            
+            if (ID == null) return RedirectToAction("Item_Management");
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+            if (CookieConfirm.HavePermission() != 3) return RedirectToAction("Item_Management");
+
             string productquery =   "DELETE FROM Product " +
                                     "WHERE ID = @ID;";
             string stockquery =     "DELETE FROM StockTake " +
@@ -286,13 +296,64 @@ namespace The_Pag.Controllers
 
             return RedirectToAction("Item_Management");
         }
-        public IActionResult Edit_User()
+        public IActionResult Edit_User(string ID)
         {
+            if (ID == null) return RedirectToAction("User_Management");
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+            if (CookieConfirm.HavePermission() != 3) return Redirect("~/");
+
+            string query = "SELECT * FROM [User] WHERE UserID = @ID;";
+            SqlParameter idParam = new SqlParameter("@ID", SqlDbType.Int);
+            idParam.Value = int.Parse(ID);
+
+            var display = context.Users.FromSqlRaw(query, idParam).ToList();
+
+            ViewBag.user = display[0];
+
             return View();
+
+        }
+
+        public IActionResult Edit_User_Action(IFormCollection input)
+        {
+            
+            SqlParameter emailParam = new SqlParameter("@Email", SqlDbType.NVarChar);
+            emailParam.Value = Convert.ToString(input["email"]);
+
+            SqlParameter nameParam = new SqlParameter("@Name", SqlDbType.NVarChar);
+            nameParam.Value = Convert.ToString(input["name"]);
+
+            SqlParameter adminParam = new SqlParameter("@Admin", SqlDbType.Bit);
+            int admin = Convert.ToInt32(input["isAdmin"]);
+
+            Console.WriteLine("Admin = " + admin);
+            if (admin == 1)
+            {
+                adminParam.Value = true;
+            } else {
+                adminParam.Value = false;
+            }
+             
+
+            SqlParameter userParam = new SqlParameter("@User", SqlDbType.NVarChar);
+            userParam.Value = Convert.ToString(input["username"]);
+
+            string query = "UPDATE [User] " +
+                           "SET " +
+                            "Email = @Email, " +
+                            "Name = @Name, " +
+                            "isAdmin = @Admin " +
+                           "WHERE UserName = @User;";
+
+            context.Database.ExecuteSqlRaw(query, emailParam, nameParam, adminParam, userParam);
+
+            return RedirectToAction("User_Management");
         }
 
         public IActionResult Item_Management()
         {
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+            if (CookieConfirm.HavePermission() == 1 || CookieConfirm.HavePermission() == 0) return Redirect("~/");
             IQueryable<Product> prodlist = context.Products; // Query initiation
             var list = prodlist.ToList();  // Query execution, creates list of models
             ViewBag.prodlist = list; // Puts results into the BAG

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using The_Pag.Classes;
+using System.Net;
 
 namespace The_Pag.Controllers
 {
@@ -17,10 +18,7 @@ namespace The_Pag.Controllers
 
         public UserController(StoreDbContext ctx)
         {
-            context = ctx;
-            CookieConfirm.SetHttpContext(this.HttpContext);
-            CookieConfirm.SetDbContext(ctx);
-            
+            context = ctx;            
         }
 
         public IActionResult Account()
@@ -33,33 +31,49 @@ namespace The_Pag.Controllers
         }
         public IActionResult Login()
         {
+            if (CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
             return View();
+        }
+
+        public IActionResult Sign_Out() 
+        {
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+
+            string tokenID = Request.Cookies["TokenCookie"];
+
+            context.Database.ExecuteSqlRaw("DELETE FROM Tokens " + "WHERE TokenId = '" + tokenID + "';");
+            
+            Response.Cookies.Append("TokenCookie", "0", new CookieOptions
+            {
+                Expires = DateTime.Now.AddDays(-1)
+            });
+            return RedirectToAction("Login");
         }
 
         public IActionResult Login_Action(string username, string password)
         {
-            var patron = context.Patrons.SingleOrDefault(patron => patron.Email == username); // Patrons have no username, they use their email as user
+            var patron = context.Patrons.FromSqlRaw("SELECT * FROM [Patrons] WHERE Email = '" + username + "';").ToList(); // Patrons have no username, they use their email as user
             bool userOrPatron = false; // False == patron
 
             int userID = 0;
 
-            if (patron == null)
+            if (patron.Count < 1)
             {
                 userOrPatron = true; // True == user
-                var user = context.Users.SingleOrDefault(user => user.UserName == username);
-                if (user == null)
+                var user = context.Users.FromSqlRaw("SELECT * FROM [User] WHERE UserName = '" + username + "';").ToList();
+                if (user.Count < 1)
                 {
-                    user = context.Users.SingleOrDefault(user => user.Email == username);// They can use email as well
-                    if (user == null)
+                    user = context.Users.FromSqlRaw("SELECT * FROM [User] WHERE Email = " + username + "';").ToList();// They can use email as well
+                    if (user.Count < 1)
                     {
                         return RedirectToAction("Login");
                     }
-                    // It's a user
-                    userID = user.UserId;
                 }
+                // It's a user
+                userID = user[0].UserId;
             } else // It's a patron
             {
-                userID = patron.UserId;
+                userID = patron[0].UserId;
             }
 
             SqlParameter userParam = new SqlParameter("@User", SqlDbType.VarChar);

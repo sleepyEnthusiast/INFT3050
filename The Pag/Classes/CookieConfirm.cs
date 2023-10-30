@@ -3,6 +3,7 @@ using Azure;
 using The_Pag.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 namespace The_Pag.Classes
 {
@@ -19,8 +20,13 @@ namespace The_Pag.Classes
         
         }
 
-        public static bool IsValidCookie()// Untested
+        public static bool IsValidCookie(HttpContext hctx, StoreDbContext dbctx)// Untested
         {
+            SetHttpContext(hctx);
+            SetDbContext(dbctx);
+
+            if (_context.Request.Cookies["TokenCookie"] == null) return false;
+
             if (_context.Request.Cookies.TryGetValue("TokenCookie", out string cookie))
             {
                 if (DateTime.TryParse(_context.Request.Cookies["TokenCookie"], out DateTime expirationDate))
@@ -40,7 +46,7 @@ namespace The_Pag.Classes
                     {
                         if (token.ExpiryDate <= DateTime.Now)
                         {
-                            _dbContext.Database.ExecuteSqlRaw("DELETE FROM Tokens " + "WHERE TokenId = " + token.TokenId.ToString()); // Delete expired cookie from database
+                            _dbContext.Database.ExecuteSqlRaw("DELETE FROM Tokens " + "WHERE TokenId = '" + token.TokenId + "';"); // Delete expired cookie from database
                             if (token.TokenId.ToString() == cookie)
                             {
                                 return false;
@@ -51,8 +57,13 @@ namespace The_Pag.Classes
                             return true;
                         }
                     }
+                    // Cookie was not found, so user has a wrong cookie?
+                    _dbContext.Database.ExecuteSqlRaw("DELETE FROM Tokens " + "WHERE TokenId = '" + cookie + "';");
+                    _context.Response.Cookies.Append("TokenCookie", "0", new CookieOptions
+                    {
+                        Expires = DateTime.Now.AddDays(-1)
+                    });
 
-                    
                 }
             }
             else
@@ -62,7 +73,7 @@ namespace The_Pag.Classes
             return false;
         }
     
-        public int HavePermission()// 0 = Error | 1 = Customer | 2 = Staff | 3 = Admin
+        public static int HavePermission()// 0 = Error | 1 = Customer | 2 = Staff | 3 = Admin
         {
             if (_context.Request.Cookies.TryGetValue("TokenCookie", out string cookie))
             {
@@ -74,8 +85,8 @@ namespace The_Pag.Classes
                     {
                         if (token.UserOrPatron) // User
                         {
-                            var user = _dbContext.Users.FromSqlRaw("SELECT * FROM User WHERE UserId = " + token.UserId).ToList();
-                            if (user != null)
+                            var user = _dbContext.Users.FromSqlRaw("SELECT * FROM [User] WHERE UserID = " + token.UserId).ToList();
+                            if (user != null && user.Count > 0)
                             {
                                 if (user[0].IsAdmin == true)
                                 {
@@ -86,7 +97,7 @@ namespace The_Pag.Classes
                             return 0;
                         } else // Patron
                         {
-                            var patron = _dbContext.Patrons.FromSqlRaw("SELECT * FROM Patrons WHERE UserID = " + token.UserId.ToString());
+                            var patron = _dbContext.Patrons.FromSqlRaw("SELECT * FROM [Patrons] WHERE UserID = " + token.UserId.ToString());
                             if(patron != null)
                             {
                                 return 1;

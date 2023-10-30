@@ -1,6 +1,8 @@
 ﻿@{
-    ViewData["Title"] = "Edit account";
+    ViewData["Title"] = "Edit_User";
 }
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <div class="accountheader">
     <h1 class="title">Your account</h1>
@@ -8,20 +10,40 @@
 
 <hr />
 
-<form class="accountform">
+@using (Html.BeginForm("Edit_User_Action", "Admin", FormMethod.Post))
+{
+    <input class="form-control userinput" type="hidden" name="username" value="@ViewBag.user.UserName">
     <div class="accountinfo">
         <div class="row">
             <div class="column ordercolumn">
                 <div class="form-group">
-                    <input class="form-control userinput" type="text" placeholder="Username" value="userName">
-                    <input class="form-control userinput" type="text" placeholder="Email" value="userEmail">
-                    <input class="form-control userinput" type="text" placeholder="Name" value="userProperName">
+                    <label for="email">Email:</label>
+                    <input class="form-control userinput" type="text" name="email" id="email" value="@ViewBag.user.Email">
+                    <label for="name">Name:</label>
+                    <input class="form-control userinput" type="text" name="name" id="name" value="@ViewBag.user.Name">
+                    <label for="isAdmin">Admin:</label>
+                    <input class="form-control userinput" type="checkbox" name="isAdmin" id="isAdmin" value="@(ViewBag.user.IsAdmin ? 1 : 0)" @(ViewBag.user.IsAdmin ? "checked" : "unchecked")>
+
+                    How do we do passwords without the hashkey?
                 </div>
             </div>
         </div>
     </div>
     <div class="d-flex flex-md-row-reverse">
-        <a href="~/User/Account" class="btn btn-primary editbutton">Save</a>
-        <a href="~/User/Account" class="btn btn-primary cancelbutton">Cancel</a>
+        <button class="btn btn-primary editbutton" type="submit">Save</button>
+        <button class="btn btn-primary cancelbutton" onclick="history.back()">Cancel</button>
     </div>
-</form>
+}
+
+<script>
+    $(document).ready(function () {
+        // Hate javascript but the simplist solution for this behaviour(i dont know how to use bootstrap)
+        $("#isAdmin").change(function () {
+            if ($(this).is(":checked")) {
+                $(this).val(1);
+            } else {
+                $(this).val(0);
+            }
+        });
+    });
+</script>

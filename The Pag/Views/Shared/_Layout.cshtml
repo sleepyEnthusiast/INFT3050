@@ -44,7 +44,15 @@
                             <div>
                                 <input type="text" placeholder="Search.." class="searchbar"> <!--Temporary search bar for presentation purposes-->
                                 <a class="nav-link text-dark navbutton" asp-area="" asp-controller="Catalogue" asp-action="Cart">Cart</a>
-                                <a class="nav-link text-dark navbutton" asp-area="" asp-controller="User" asp-action="Login">Login</a>
+                                @if (Context.Request.Cookies["TokenCookie"] == null)
+                                {
+                                    <a class="nav-link text-dark navbutton" asp-area="" asp-controller="User" asp-action="Login">Login</a>
+                                } else
+                                {
+                                    <a class="nav-link text-dark navbutton" asp-area="" asp-controller="User" asp-action="Sign_Out">Sign Out</a>
+                                }
+
+                                
                                 <a class="nav-link text-dark navbutton" asp-area="" asp-controller="User" asp-action="Account">MY ACCOUNT</a>
                             </div>
                         </li>
