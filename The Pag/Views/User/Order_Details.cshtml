@@ -1,9 +1,9 @@
 ﻿@{
-    ViewData["Title"] = "Order Details";
+    ViewData["Title"] = "Order_Details";
 }
 
 <div class="accountheader">
-    <h1 class="title">Username</h1> <!--Needs session state current user-->
+    <h1 class="title">Order Details</h1> <!--Needs session state current user-->
 </div>
 
 <div class="d-flex">
@@ -16,19 +16,22 @@
     <div class="accountinfo">
        <div class="row">
         <div class="column ordercolumn">
-        <p>Item Ordered</p>
-        <p>Email</p>
-        <p>Address</p>
-        <p>Postcode</p>
+            <p>Order ID</p>
+            <p>Suburb</p>
+            <p>Street Address</p>
+            <p>Postcode</p>
+            <p>State</p>
         </div>
         <div class="column ordercolumn">
-        <p>Suburb</p>
-        <p>State</p>
-        <p>Phone Number</p>
+            <p>@ViewBag.order.OrderId</p>
+            <p>@ViewBag.order.Suburb</p>
+            <p>@ViewBag.order.StreetAddress</p>
+            <p>@ViewBag.order.PostCode</p>
+            <p>@ViewBag.order.State</p>
         </div>
        </div>
     </div>
     <div class="d-flex flex-md-row-reverse">
-        <a href="~/User/Update_Order_Details" class="btn btn-primary editbutton">Edit</a>
+        <a href="~/User/Update_Order_Details/@ViewBag.order.OrderId" class="btn btn-primary editbutton">Edit</a>
     </div>
 </form>

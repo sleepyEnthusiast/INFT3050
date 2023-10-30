@@ -1,9 +1,9 @@
 ﻿@{
-    ViewData["Title"] = "Update your Order";
+    ViewData["Title"] = "Update Order Details";
 }
 
 <div class="accountheader">
-    <h1 class="title">Username</h1> <!--Needs session state current user-->
+    <h1 class="title">Update Order Details</h1>
 </div>
 
 <div class="d-flex">
@@ -11,29 +11,19 @@
 </div>
 
 <hr />
+@using (Html.BeginForm("Update_Order_Details_Action", "User", FormMethod.Post))
+{
+    <input class="form-control userinput" type="hidden" name="ID" value="@ViewBag.order.OrderId">
 
-<form class="accountform">
-    <div class="accountinfo">
-        <div class="row">
-            <div class="column ordercolumn">
-                <div class="form-group">
-                    <input class="form-control userinput" type="text" placeholder="Item name" value="UserOrderedItem">
-                    <input id="form1" min="1" name="quantity" value="1" type="number"
-                        class="form-control form-control-sm pull-right" style="width: 50px;"/>
-                </div>
-                <input class="form-control userinput" type="text" placeholder="Email" value="UserEmail">
-                <input class="form-control userinput" type="text" placeholder="Address" value="UserAddress" />
-                <input class="form-control userinput" type="text" placeholder="Postcode" value="UserPostcode"/>
-            </div>
-            <div class="column ordercolumn">
-                <input class="userinput form-control" type="text" placeholder="Suburb" value="UserSuburb">
-                <input class="form-control userinput" type="text" placeholder="State" value="UserState">
-                <input class="form-control userinput" type="text" placeholder="Phone Number" value="UserPhNumber">
-            </div>
-        </div>
-    </div>
-    <div class="d-flex flex-md-row-reverse">
-        <a href="~/User/Order_Details" class="btn btn-primary editbutton">Save</a>
-        <a href="~/User/Order_Details" class="btn btn-primary cancelbutton">Cancel</a>
-    </div>
-</form>
+    <label for="email">Suburb</label>
+    <input class="form-control userinput" type="text" name="Suburb" id="Suburb" value="@ViewBag.order.Suburb">
+    <label for="email">Street Address</label>
+    <input class="form-control userinput" type="text" name="Street" id="Street" value="@ViewBag.order.StreetAddress">
+    <label for="email">Postcode</label>
+    <input class="form-control userinput" type="text" name="Postcode" id="Postcode" value="@ViewBag.order.PostCode">
+    <label for="email">State</label>
+    <input class="form-control userinput" type="text" name="State" id="State" value="@ViewBag.order.State">
+
+    <button class="btn btn-primary editbutton" id="Save" type="submit">Save</button>
+}
+
