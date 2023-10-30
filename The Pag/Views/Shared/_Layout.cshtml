@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using The_Pag.Classes;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -37,6 +38,7 @@
                             <a class="nav-link text-dark navbutton" href="~/Catalogue/Catalogue/games/rpg/name/desc">GAMES</a>
                             <a class="nav-link text-dark navbutton" asp-area="" asp-controller="Admin" asp-action="Item_Management">Item Management</a>
                             <a class="nav-link text-dark navbutton" asp-area="" asp-controller="Admin" asp-action="User_Management">User Management</a>
+                            <a href="~/Home/Error">Error</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav flex-grow-1 ml-auto justify-content-end usergroup">
@@ -52,7 +54,6 @@
                                     <a class="nav-link text-dark navbutton" asp-area="" asp-controller="User" asp-action="Sign_Out">Sign Out</a>
                                 }
 
-                                
                                 <a class="nav-link text-dark navbutton" asp-area="" asp-controller="User" asp-action="Account">MY ACCOUNT</a>
                             </div>
                         </li>
