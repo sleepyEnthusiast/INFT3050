@@ -4,7 +4,7 @@
 
 
 <h1>All current users:</h1>
-
+<a class="btn btn-primary" href="~/Admin/Add_User">Add User</a>
 <table class="table-responsive usertable">
     <thead>
         <tr class="tableheader">
@@ -27,9 +27,7 @@
                 <td>@(detail.IsAdmin)</td>
                 <td>
                 <td><a class="edituserbtn btn" href="~/Admin/Edit_User/@(detail.UserId)">Edit</a></td>
-                <td>
-                    <button class="deluserbtn btn" id="deleteuser">Delete</button>
-                </td>
+                <td><a class="deluserbtn btn" href="~/Admin/Delete_User/@(detail.UserName)">Delete</a></td>
                 
             </tr>
         }

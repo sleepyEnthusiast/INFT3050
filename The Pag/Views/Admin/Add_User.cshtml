@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Add_User";
+}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<div class="accountheader">
+    <h1 class="title">Your account</h1>
+</div>
+
+<hr />
+
+@using (Html.BeginForm("Add_User_Action", "Admin", FormMethod.Post))
+{
+    <div class="accountinfo">
+        <div class="row">
+            <div class="column ordercolumn">
+                <div class="form-group">
+                    <label for="email">Username:</label>
+                    <input class="form-control userinput" type="text" name="username" id="username" value="username" required>
+                    <label for="email">Email:</label>
+                    <input class="form-control userinput" type="text" name="email" id="email" value="email">
+                    <label for="name">Name:</label>
+                    <input class="form-control userinput" type="text" name="name" id="name" value="name">
+                    <label for="isAdmin">Admin:</label>
+                    <input class="form-control userinput" type="checkbox" name="isAdmin" id="isAdmin" value="0">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex flex-md-row-reverse">
+        <button class="btn btn-primary editbutton" type="submit">Save</button>
+        <button class="btn btn-primary cancelbutton" onclick="history.back()">Cancel</button>
+    </div>
+}
+
+<script>
+    $(document).ready(function () {
+        // Hate javascript but the simplist solution for this behaviour(i dont know how to use bootstrap)
+        $("#isAdmin").change(function () {
+            if ($(this).is(":checked")) {
+                $(this).val(1);
+            } else {
+                $(this).val(0);
+            }
+        });
+    });
+</script>

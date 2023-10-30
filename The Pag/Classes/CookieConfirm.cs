@@ -4,6 +4,8 @@ using The_Pag.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
+using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace The_Pag.Classes
 {
@@ -112,6 +114,27 @@ namespace The_Pag.Classes
                 return 0;
             }
             return 0;
+        }
+    
+        public static int GetUserID(string Token)
+        {
+            SqlParameter tokenParam = new SqlParameter("@Token", SqlDbType.Int);
+            tokenParam.Value = Convert.ToInt32(Token);
+
+            var user = _dbContext.Tokens.FromSqlRaw("SELECT * FROM [Tokens] WHERE TokenId = @Token;", tokenParam).ToList();
+
+            return user[0].UserId;
+
+        }
+        public static bool GetUserOrPatron(string Token)
+        {
+            SqlParameter tokenParam = new SqlParameter("@Token", SqlDbType.Int);
+            tokenParam.Value = Convert.ToInt32(Token);
+
+            var user = _dbContext.Tokens.FromSqlRaw("SELECT * FROM [Tokens] WHERE TokenId = @Token;", tokenParam).ToList();
+
+            return user[0].UserOrPatron;
+
         }
     }
 }
