@@ -54,7 +54,6 @@ namespace The_Pag.Controllers
 
             return View();
         }
-
         public IActionResult Account_Create_Action(IFormCollection input)
         {
             if (CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
@@ -82,7 +81,6 @@ namespace The_Pag.Controllers
             if (CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
             return View();
         }
-
         public IActionResult Sign_Out() 
         {
             if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
@@ -97,7 +95,6 @@ namespace The_Pag.Controllers
             });
             return RedirectToAction("Login");
         }
-
         public IActionResult Login_Action(string username, string password)
         {
             var patron = context.Patrons.FromSqlRaw("SELECT * FROM [Patrons] WHERE Email = '" + username + "';").ToList(); // Patrons have no username, they use their email as user
@@ -168,17 +165,6 @@ namespace The_Pag.Controllers
             
             return RedirectToAction("Account");
         }
-
-        public IActionResult Order_Details()
-        {
-
-            IQueryable<User> userList = context.Users; // Query initiation
-            var listofusers = userList.ToList();  // Query execution, creates list of models
-            ViewBag.userList = listofusers; // Puts results into the BAG
-
-            return View();
-        }
-
         public IActionResult Order_History()
         {
             if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
@@ -200,13 +186,66 @@ namespace The_Pag.Controllers
 
             return View();
         }
-
-        public IActionResult Update_Order_Details()
+        public IActionResult Update_Order_Details(string ID)
         {
             if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+            var order = context.Orders.FirstOrDefault(ordertest => ordertest.OrderId == Convert.ToInt32(ID));
 
-            
-            return View();
+            if (order != null)
+            {
+                ViewBag.order = order;
+                return View();
+            }
+            else
+            {
+                return Redirect("~/Error");
+            }
         }
+        
+        public IActionResult Update_Order_Details_Action(IFormCollection input)
+        {
+            SqlParameter idParam = new SqlParameter("@ID", SqlDbType.Int);
+            idParam.Value = Convert.ToInt32(input["ID"]);
+
+            SqlParameter streetParam = new SqlParameter("@StreetAddress", SqlDbType.NVarChar);
+            streetParam.Value = Convert.ToString(input["Street"]);
+
+            SqlParameter postParam = new SqlParameter("@Post", SqlDbType.Int);
+            postParam.Value = Convert.ToInt32(input["Postcode"]);
+
+            SqlParameter suburbParam = new SqlParameter("@Suburb", SqlDbType.NVarChar);
+            suburbParam.Value = Convert.ToString(input["Suburb"]);
+
+            SqlParameter stateParam = new SqlParameter("@State", SqlDbType.NVarChar);
+            stateParam.Value = Convert.ToString(input["State"]);
+
+            string query =  "UPDATE [Orders] " +
+                            "SET Suburb = @Suburb, " +
+                            "StreetAddress = @StreetAddress, " +
+                            "PostCode = @Post, " +
+                            "State = @State " +
+                            "WHERE OrderID = @ID";
+
+            context.Database.ExecuteSqlRaw(query, suburbParam, streetParam, postParam, stateParam, idParam);
+
+            return RedirectToAction("Order_History");
+        }
+        public IActionResult Order_Details(string ID) {
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+
+            var order = context.Orders.FirstOrDefault(ordertest => ordertest.OrderId == Convert.ToInt32(ID));
+
+            if (order != null)
+            {
+                ViewBag.order = order;
+                return View();
+            }
+            else
+            {
+                return Redirect("~/Error");
+            }
+            
+        }
+    
     }
 }

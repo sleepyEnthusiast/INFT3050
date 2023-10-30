@@ -5,7 +5,7 @@
 
 <div class="accountheader">
     <h1 class="title">Your account</h1>
-    @if (ViewBag.PatronOrUser)
+    @if (CookieConfirm.HavePermission() == 1)
     {
         <btn onclick="window.location.href='Order_History'" class="btn btn-primary viewordersbutton">View Orders</btn>
     }
@@ -13,7 +13,7 @@
 
 <hr />
 
-@if (CookieConfirm.HavePermission() == 3)
+@if (CookieConfirm.HavePermission() == 3 || CookieConfirm.HavePermission() == 2)
 {
     <div class="text-center">
         <a class="btn btn-primary editbutton" asp-area="" asp-controller="Admin" asp-action="Item_Management">Manage Items</a>

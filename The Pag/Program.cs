@@ -70,8 +70,9 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "user",
     pattern: "{controller=User}/{action=Account_Create_Action}/{input}",
-    constraints: new {action = "Account_Create_Action" }
+    constraints: new {action = "Account_Create_Action|Update_Order_Details_Action" }
     );
+
 
 app.MapRazorPages();
 
