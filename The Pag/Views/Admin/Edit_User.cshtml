@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="d-flex flex-md-row-reverse">
-        <button class="btn btn-primary editbutton" type="submit">Save</button>
+        <button class="btn btn-primary editbutton" id="Save" type="submit">Save</button>
         <button class="btn btn-primary cancelbutton" onclick="history.back()">Cancel</button>
     </div>
 }
@@ -43,6 +43,27 @@
                 $(this).val(1);
             } else {
                 $(this).val(0);
+            }
+        });
+
+        $("#Save").click(function () {
+            var inputname;
+            inputname = $("#name").val();
+
+            if (inputname == '') {
+                alert("Please input a name");
+                return false;
+            }
+
+            if (inputname.length > 40) {
+                alert("Name can't be longer than 40 characters");
+                return false;
+            }
+
+            const response = confirm("Confirm changes?")
+
+            if (response == false) {
+                return false;
             }
         });
     });

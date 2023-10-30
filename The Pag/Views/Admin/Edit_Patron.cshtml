@@ -2,6 +2,8 @@
     ViewData["Title"] = "Edit_Patron";
 }
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <div class="accountheader">
     <h1 class="title">Your account</h1>
 </div>
@@ -25,7 +27,34 @@
         </div>
     </div>
     <div class="d-flex flex-md-row-reverse">
-        <button class="btn btn-primary editbutton" type="submit">Save</button>
+        <button class="btn btn-primary editbutton" id="Save" type="submit">Save</button>
         <button class="btn btn-primary cancelbutton" onclick="history.back()">Cancel</button>
     </div>
 }
+
+<script>
+    // Clientside validation
+    $(document).ready(function () {
+        $("#Save").click(function () {
+            var inputname;
+            inputname = $("#name").val();
+
+            if (inputname == '') {
+                alert("Please input a name");
+                return false;
+            }
+
+            if (inputname.length > 40) {
+                alert("Name can only be up to 40 characters");
+                return false;
+            }
+
+
+            const response = confirm("Confirm changes?")
+
+            if (response == false) {
+                return false;
+            }
+        });
+    });
+</script>
