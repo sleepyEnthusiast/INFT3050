@@ -23,10 +23,30 @@ namespace The_Pag.Controllers
 
         public IActionResult Account()
         {
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+
+            string token = Request.Cookies["TokenCookie"];
+
+            SqlParameter userParam = new SqlParameter("@User", SqlDbType.Int);
+            userParam.Value = CookieConfirm.GetUserID(token);
+
+            if (CookieConfirm.GetUserOrPatron(token))
+            {
+                var user = context.Users.FromSqlRaw("SELECT * FROM [User] WHERE UserId = @User;", userParam).ToList();
+                ViewBag.user = user[0];
+            } else
+            {
+                var user = context.Patrons.FromSqlRaw("SELECT * FROM [Patrons] WHERE UserID = @User;", userParam).ToList();
+                ViewBag.user = user[0];
+            }
+            
+            
+
             return View();
         }
         public IActionResult Account_Create()
         {
+
             return View();
         }
         public IActionResult Login()
@@ -133,11 +153,15 @@ namespace The_Pag.Controllers
 
         public IActionResult Order_History()
         {
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+
             return View();
         }
 
         public IActionResult Update_Order_Details()
         {
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+
             return View();
         }
     }

@@ -302,7 +302,10 @@ namespace The_Pag.Controllers
             if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
             if (CookieConfirm.HavePermission() != 3) return Redirect("~/");
 
+            if (CookieConfirm.GetUserID(Request.Cookies["TokenCookie"]) == Convert.ToInt32(ID)) return RedirectToAction("User_Management"); // user cant edit their own entry
+
             string query = "SELECT * FROM [User] WHERE UserID = @ID;";
+
             SqlParameter idParam = new SqlParameter("@ID", SqlDbType.Int);
             idParam.Value = int.Parse(ID);
 
@@ -312,11 +315,20 @@ namespace The_Pag.Controllers
 
             return View();
 
-        }
+        }// This is where i realised that the primary key for user is UserName not ID, so Delete user uses UserName Instead
 
+        public IActionResult Add_User()
+        {
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+            if (CookieConfirm.HavePermission() == 1 || CookieConfirm.HavePermission() == 0) return Redirect("~/");
+
+
+            return View();
+        }
         public IActionResult Edit_User_Action(IFormCollection input)
         {
-            
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+            if (CookieConfirm.HavePermission() != 3) return Redirect("~/");
             SqlParameter emailParam = new SqlParameter("@Email", SqlDbType.NVarChar);
             emailParam.Value = Convert.ToString(input["email"]);
 
@@ -326,15 +338,13 @@ namespace The_Pag.Controllers
             SqlParameter adminParam = new SqlParameter("@Admin", SqlDbType.Bit);
             int admin = Convert.ToInt32(input["isAdmin"]);
 
-            Console.WriteLine("Admin = " + admin);
             if (admin == 1)
             {
                 adminParam.Value = true;
             } else {
                 adminParam.Value = false;
             }
-             
-
+            
             SqlParameter userParam = new SqlParameter("@User", SqlDbType.NVarChar);
             userParam.Value = Convert.ToString(input["username"]);
 
@@ -350,6 +360,55 @@ namespace The_Pag.Controllers
             return RedirectToAction("User_Management");
         }
 
+        public IActionResult Add_User_Action(IFormCollection input)
+        {
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+            if (CookieConfirm.HavePermission() != 3) return Redirect("~/");
+
+            SqlParameter userParam = new SqlParameter("@User", SqlDbType.NVarChar);
+            userParam.Value = Convert.ToString(input["username"]);
+
+            SqlParameter emailParam = new SqlParameter("@Email", SqlDbType.NVarChar);
+            emailParam.Value = Convert.ToString(input["email"]);
+
+            SqlParameter nameParam = new SqlParameter("@Name", SqlDbType.NVarChar);
+            nameParam.Value = Convert.ToString(input["name"]);
+
+            SqlParameter adminParam = new SqlParameter("@Admin", SqlDbType.Bit);
+            int admin = Convert.ToInt32(input["isAdmin"]);
+
+            if (admin == 1)
+            {
+                adminParam.Value = true;
+            }
+            else
+            {
+                adminParam.Value = false;
+            }
+
+            string query =  "INSERT INTO [User] (UserName, Email, Name, isAdmin, Salt, HashPW) " +
+                            "VALUES (@User, @Email, @Name, @Admin, 'Not Implemented', 'Not Implemented');";
+
+            context.Database.ExecuteSqlRaw(query, userParam, emailParam, nameParam, adminParam);
+
+            return RedirectToAction("User_Management");
+        }
+        public IActionResult Delete_User(string ID)
+        {
+            if (ID == null) return RedirectToAction("User_Management");
+            if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");
+            if (CookieConfirm.HavePermission() != 3) return Redirect("~/");
+
+            SqlParameter userParam = new SqlParameter("@User", SqlDbType.NVarChar);
+            userParam.Value = Convert.ToString(ID);
+
+            context.Database.ExecuteSqlRaw( "DELETE FROM [User] " +
+                                            "WHERE UserName = @User;",
+                                            userParam);
+
+            return RedirectToAction("User_Management");
+
+        }
         public IActionResult Item_Management()
         {
             if (!CookieConfirm.IsValidCookie(this.HttpContext, context)) return Redirect("~/");

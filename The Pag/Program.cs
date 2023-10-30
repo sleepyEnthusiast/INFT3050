@@ -34,13 +34,13 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "admin",
     pattern: "{controller=Admin}/{action=Edit_Item}/{id?}",
-    constraints: new {action= "Edit_Item|Edit_User|Item_Management|User_Management|Delete_Item|Add_Item" }
+    constraints: new {action= "Edit_Item|Delete_Item|Add_Item|Edit_User|Delete_User|Add_User|Item_Management|User_Management" }
 );
 
 app.MapControllerRoute(
     name: "admin",
     pattern: "{controller=Admin}/{action=Edit_Item_Action}/{input}",
-    constraints: new { action = "Edit_Item_Action|Add_Item_Action|Edit_User_Action" }
+    constraints: new { action = "Edit_Item_Action|Add_Item_Action|Edit_User_Action|Add_User_Action" }
 );
 
 app.MapControllerRoute(

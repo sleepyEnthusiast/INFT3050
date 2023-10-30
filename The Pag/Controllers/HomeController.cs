@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using The_Pag.Models;
+using The_Pag.Classes;
 
 namespace The_Pag.Controllers
 {
