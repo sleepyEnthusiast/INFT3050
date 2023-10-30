@@ -488,7 +488,7 @@ namespace The_Pag.Controllers
             SqlParameter userParam = new SqlParameter("@User", SqlDbType.Int);
             userParam.Value = Convert.ToInt32(ID);
 
-            context.Database.ExecuteSqlRaw("DELETE FROM [Patron] " +
+            context.Database.ExecuteSqlRaw("DELETE FROM [Patrons] " +
                                             "WHERE UserID = @User;",
                                             userParam);
 
