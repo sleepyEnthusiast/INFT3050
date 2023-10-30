@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Edit_Patron";
+}
+
+<div class="accountheader">
+    <h1 class="title">Your account</h1>
+</div>
+
+<hr />
+
+@using (Html.BeginForm("Edit_Patron_Action", "Admin", FormMethod.Post))
+{
+    <input class="form-control userinput" type="hidden" name="ID" value="@ViewBag.user.UserId">
+    <div class="accountinfo">
+        <div class="row">
+            <div class="column ordercolumn">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input class="form-control userinput" type="text" name="email" id="email" value="@ViewBag.user.Email">
+                    <label for="name">Name:</label>
+                    <input class="form-control userinput" type="text" name="name" id="name" value="@ViewBag.user.Name">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex flex-md-row-reverse">
+        <button class="btn btn-primary editbutton" type="submit">Save</button>
+        <button class="btn btn-primary cancelbutton" onclick="history.back()">Cancel</button>
+    </div>
+}

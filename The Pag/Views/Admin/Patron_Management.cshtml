@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Patron Management";
+}
+
+
+<h1>All current users:</h1>
+<a class="btn btn-primary" href="~/Admin/Add_Patron">Add User</a>
+<table class="table-responsive usertable">
+    <thead>
+        <tr class="tableheader">
+            <!-- Table headers -->
+            <th>User ID</th>
+            <th>Email</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody class="table">
+        @foreach (User detail in ViewBag.userList)  // Builds table from database
+        {
+            <tr>
+                <td>@(detail.UserId)</td>
+                <td>@(detail.Email ?? "NULL")</td>
+                <td>@(detail.Name)</td>
+                <td><a class="edituserbtn btn" href="~/Admin/Edit_Patron/@(detail.UserId)">Edit</a></td>
+                <td><a class="deluserbtn btn" href="~/Admin/Delete_Patron/@(detail.UserId)">Delete</a></td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
