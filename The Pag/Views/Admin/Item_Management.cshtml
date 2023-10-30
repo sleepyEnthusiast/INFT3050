@@ -2,6 +2,8 @@
     ViewData["Title"] = "Home Page";
 }
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <div class="text-center">
     <h1>Admin Item Management</h1>
     <h2>Ctrl + F to search</h2>
@@ -35,9 +37,22 @@
                     <td>@item.LastUpdatedBy</td>
                     <td>@item.LastUpdated</td>
                     <td><a class="btn btn-primary" href="~/Admin/Edit_Item/@(item.Id)">Edit</a></td>
-                    <td><a class="btn btn-primary delbtn" href="~/Admin/Delete_Item/@(item.Id)">Delete</a></td>
+                    <td><a class="btn btn-primary delbtn" id="Delete" href="~/Admin/Delete_Item/@(item.Id)">Delete</a></td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+
+<script>
+    $(document).on(function () {
+        // Confirm delete
+        $("#Delete").click(function () {
+            const response = confirm("Confirm delete?")
+
+            if (response == false) {
+                return false;
+            }
+        });
+    });
+</script>

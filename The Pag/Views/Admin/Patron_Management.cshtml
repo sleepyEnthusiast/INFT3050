@@ -2,6 +2,7 @@
     ViewData["Title"] = "Patron Management";
 }
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <h1>All current users:</h1>
 <a class="btn btn-primary addbutton" href="~/Admin/Add_Patron">+ Add Patron</a>
@@ -24,9 +25,22 @@
                 <td>@(detail.Email ?? "NULL")</td>
                 <td>@(detail.Name)</td>
                 <td><a class="btn btn-primary" href="~/Admin/Edit_Patron/@(detail.UserId)">Edit</a></td>
-                <td><a class="delbtn btn btn-primary" href="~/Admin/Delete_Patron/@(detail.UserId)">Delete</a></td>
+                <td><a class="delbtn btn btn-primary" id="Delete" href="~/Admin/Delete_Patron/@(detail.UserId)">Delete</a></td>
                 
             </tr>
         }
     </tbody>
 </table>
+
+<script>
+    $(document).on(function () {
+        // Confirm delete
+        $("#Delete").click(function () {
+            const response = confirm("Confirm delete?")
+
+            if (response == false) {
+                return false;
+            }
+        });
+    });
+</script>
